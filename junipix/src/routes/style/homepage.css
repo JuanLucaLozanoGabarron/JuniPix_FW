@@ -1,20 +1,20 @@
+.firstInfo {
+  position: fixed;
+  margin-top: 80px;
+  left: 300px;
+  z-index: 2;
+  display: flex;
+}
+
 .text {
   width: 450px;
-  margin-top: 150px;
   height: 550px;
-  position: fixed;
-  left: 320px;
-  z-index: 2;
 }
 
 .collage {
   width: 500px;
-  margin-top: 150px;
   height: 550px;
   background-color: blue;
-  position: fixed;
-  right: 170px;
-  z-index: 2;
 }
 
 .title {
