@@ -1,0 +1,66 @@
+.header {
+  width: 90%;
+  height: 65px;
+  margin-top: 20px;
+  padding: 0px 80px;
+  z-index: 2;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+}
+
+.logo {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo p {
+  font-family: Cinzel;
+  font-size: 16px;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 250px;
+}
+
+.searchbar {
+  width: 320px;
+  display: flex;
+  border-bottom: solid 1px;
+}
+
+.searchbar input {
+  width: 100%;
+  border: 0px;
+  background-color: transparent;
+  color: black;
+  font-family: Poppins;
+  font-size: 11px;
+}
+
+.login {
+  width: 100px;
+  margin-right: 50px;
+  display: flex;
+  justify-content: right;
+}
+
+.login button {
+  width: 80px;
+  height: 30px;
+  font-size: 12px;
+  background-color: #a4988d;
+  border: none;
+  color: white;
+}
