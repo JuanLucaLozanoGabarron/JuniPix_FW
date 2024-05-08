@@ -9,9 +9,19 @@ export default function Artwork() {
       <Header />
       <div className="searchPage">
         <div className="titleOfSearch">
+          <hr />
           <h1>Search</h1>
+          <hr />
         </div>
-        <div className="cardsOfArtwortk">
+        <div className="cardsOfArtwork">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
           <Card />
           <Card />
           <Card />
