@@ -1,0 +1,94 @@
+.loginPage {
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.titleOfLogin {
+  margin-top: 130px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  z-index: 2;
+  text-align: center;
+}
+
+hr {
+  width: 150px;
+  height: 0px;
+}
+
+.titleOfLogin h1 {
+  font-size: 50px;
+  font-family: Cinzel;
+  font-weight: 200;
+}
+
+.formContact {
+  display: flex;
+  font-family: Roboto;
+  justify-content: space-between;
+  font-size: 11px;
+  margin-right: 100px;
+}
+
+.infoLogin {
+  display: flex;
+  margin: auto;
+}
+
+.infoLogin img {
+  width: 300px;
+}
+
+#registerNow {
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+
+#account {
+  font-size: 12px;
+}
+
+#mailLogin {
+  width: 500px;
+}
+
+#password {
+  width: 500px;
+}
+
+.form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formContact h1 {
+  font-size: 40px;
+}
+
+.formInput {
+  font-family: Roboto;
+  border: none;
+  border-bottom: 1px solid;
+  height: 40px;
+  width: 230px;
+  background-color: transparent;
+}
+
+.formContact button {
+  font-family: Roboto;
+  border: 0px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  height: 40px;
+  width: 280px;
+  background-color: #a4988d;
+  color: white;
+}
+
+#large {
+}

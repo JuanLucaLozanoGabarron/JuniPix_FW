@@ -6,6 +6,9 @@ import Artwork from "./routes/Artwork";
 import CreateAI from "./routes/CreateAI";
 import Likes from "./routes/Likes";
 import Gallery from "./routes/Gallery";
+import Login from "./routes/Login";
+import Register from "./routes/Register";
+import Profile, { profileData } from "./routes/Profile.jsx";
 import reportWebVitals from "./reportWebVitals";
 import Background from "./components/Background";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -37,6 +40,19 @@ const router = createBrowserRouter([
   {
     path: "/gallery-1",
     element: <Gallery />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
+    loader: profileData,
   },
 ]);
 

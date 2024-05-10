@@ -25,9 +25,11 @@ export default function Header() {
         <input type="text" placeholder="Search your favourite artpiece" />
         <img src="" alt="" />
       </div>
-      <div className="login">
-        <button>Login</button>
-      </div>
+      <Link to="/login">
+        <div className="login">
+          <button>Login</button>
+        </div>
+      </Link>
     </div>
   );
 }
