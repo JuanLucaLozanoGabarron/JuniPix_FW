@@ -2,15 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import Homepage from "./routes/Homepage";
+import Artwork from "./routes/Artwork";
+import CreateAI from "./routes/CreateAI";
 import reportWebVitals from "./reportWebVitals";
 import Background from "./components/Background";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Artwork from "./routes/Artwork";
+
 <style>
   @import
   url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
   @import
-  url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+  url('https://fonts.googleapis.com/css2?family=Cinzel:wght@200..900&display=swap');
 </style>;
 
 const router = createBrowserRouter([
@@ -21,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/artworks",
     element: <Artwork />,
+  },
+  {
+    path: "/create-artworks",
+    element: <CreateAI />,
   },
 ]);
 

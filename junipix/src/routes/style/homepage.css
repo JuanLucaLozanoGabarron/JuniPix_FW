@@ -19,16 +19,18 @@
 
 .title {
   font-family: Cinzel;
-  font-weight: 200;
   margin-top: 100px;
+  font-weight: 200;
 }
 
 .title h2 {
   font-size: 55px;
+  font-weight: 200;
 }
 .title h1 {
   font-size: 95px;
   margin-top: -50px;
+  font-weight: 200;
 }
 
 .createYourArtpiece {

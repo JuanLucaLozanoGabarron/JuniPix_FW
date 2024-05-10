@@ -1,0 +1,74 @@
+.createPage {
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+#regenerate {
+  width: 200px;
+  height: 30px;
+  font-size: 12px;
+  color: gray;
+  background-color: white;
+  border: solid 1px orange;
+  margin: auto;
+}
+
+.titleOfCreation {
+  margin-top: 130px;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  z-index: 2;
+  text-align: center;
+}
+
+hr {
+  width: 150px;
+  height: 0px;
+}
+
+.titleOfCreation h1 {
+  font-size: 50px;
+  font-family: Cinzel;
+  font-weight: 200;
+}
+
+.searchAi {
+  width: 600px;
+  display: flex;
+  margin: auto;
+  margin-bottom: 35px;
+}
+
+.searchAi input {
+  text-decoration: none;
+  width: 100%;
+  border: 0px;
+  border-bottom: solid 1px !important;
+  background-color: transparent;
+  color: black;
+  font-family: cinzel;
+  font-weight: 600;
+  font-size: 11px;
+  margin-right: 20px;
+}
+
+.searchAi button {
+  width: 100px;
+  height: 30px;
+  font-size: 12px;
+  color: gray;
+  background-color: white;
+  border: solid 1px orange;
+}
+
+.cardsOfAi {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  z-index: 2;
+  margin-top: 40px;
+}

@@ -1,5 +1,6 @@
 import "./style/homepage.css";
 import Header from "../components/Header";
+import { Link } from "react-router-dom";
 
 function App() {
   return (
@@ -12,9 +13,11 @@ function App() {
             <h1>JUNIPIX</h1>
           </div>
           <div className="createYourArtpiece">
-            <button>
-              <p>Create your own artpiece</p>
-            </button>
+            <Link to="/create-artworks">
+              <button>
+                <p>Create your own artpiece</p>
+              </button>
+            </Link>
           </div>
         </div>
         <div className="collage"></div>

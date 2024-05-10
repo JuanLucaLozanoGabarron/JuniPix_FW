@@ -23,6 +23,7 @@ hr {
 .titleOfSearch h1 {
   font-size: 50px;
   font-family: Cinzel;
+  font-weight: 200;
 }
 
 .cardsOfArtwork {
@@ -31,4 +32,3 @@ hr {
   justify-content: space-between;
   z-index: 2;
 }
-

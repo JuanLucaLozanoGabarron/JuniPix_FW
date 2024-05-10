@@ -1,11 +1,10 @@
-.cardArt {
+.cardAi {
   width: 230px;
   height: 300px;
   margin-bottom: 30px;
 }
 
-.likeArt button {
-  position: relative;
+.likeAi button {
   margin-left: 190px;
   margin-top: 10px;
   width: 30px;
@@ -13,28 +12,16 @@
   border: 0px;
   border-radius: 50%;
   background-color: #a4988d;
+  position: relative;
   z-index: 3;
 }
 
-.titleArt {
-  font-size: 16px;
-}
-
-.secondInfo {
-  font-size: 10px;
-  margin-top: -10px;
-}
-
-.textArt {
-  margin-left: 15px;
-}
-
-.imageArt {
+.imageAi {
   background-color: azure;
   margin-top: -40px;
 }
 
-.imageArt img {
+.imageAi img {
   object-fit: cover;
   height: 230px;
   width: 230px;
