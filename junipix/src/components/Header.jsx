@@ -17,7 +17,9 @@ export default function Header() {
           <p>Works of Art</p>
         </Link>
         <p>3D Gallery</p>
-        <p>Likes</p>
+        <Link to="/likes">
+          <p>Likes</p>
+        </Link>
       </div>
       <div className="searchbar">
         <input type="text" placeholder="Search your favourite artpiece" />

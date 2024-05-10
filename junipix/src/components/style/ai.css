@@ -1,7 +1,6 @@
 .cardAi {
   width: 230px;
-  height: 300px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .likeAi button {
@@ -17,7 +16,6 @@
 }
 
 .imageAi {
-  background-color: azure;
   margin-top: -40px;
 }
 

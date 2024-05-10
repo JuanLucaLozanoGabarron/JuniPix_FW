@@ -4,6 +4,8 @@ import "./index.css";
 import Homepage from "./routes/Homepage";
 import Artwork from "./routes/Artwork";
 import CreateAI from "./routes/CreateAI";
+import Likes from "./routes/Likes";
+import Gallery from "./routes/Gallery";
 import reportWebVitals from "./reportWebVitals";
 import Background from "./components/Background";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -27,6 +29,14 @@ const router = createBrowserRouter([
   {
     path: "/create-artworks",
     element: <CreateAI />,
+  },
+  {
+    path: "/likes",
+    element: <Likes />,
+  },
+  {
+    path: "/gallery-1",
+    element: <Gallery />,
   },
 ]);
 

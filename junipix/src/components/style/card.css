@@ -18,6 +18,7 @@
 
 .titleArt {
   font-size: 16px;
+  margin-top: -10px;
 }
 
 .secondInfo {
@@ -30,7 +31,6 @@
 }
 
 .imageArt {
-  background-color: azure;
   margin-top: -40px;
 }
 
