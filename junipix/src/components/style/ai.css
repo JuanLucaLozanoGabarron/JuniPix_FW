@@ -15,6 +15,10 @@
   z-index: 3;
 }
 
+.likeAi img {
+  width: 100%;
+}
+
 .imageAi {
   margin-top: -40px;
 }

@@ -16,6 +16,10 @@
   z-index: 3;
 }
 
+.likeArt img {
+  width: 100%;
+}
+
 .titleArt {
   font-size: 16px;
   margin-top: -10px;

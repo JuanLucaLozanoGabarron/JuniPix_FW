@@ -1,6 +1,7 @@
 import "./style/homepage.css";
 import Header from "../components/Header";
 import { Link } from "react-router-dom";
+import GoAi from "./images/goAi.png";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Link to="/create-artworks">
               <button>
                 <p>Create your own artpiece</p>
+                <img src={GoAi} alt="" />
               </button>
             </Link>
           </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import "./style/header.css";
 import Logo from "./images/logo.png";
+import Glass from "./images/glass_black.png";
 import { Link } from "react-router-dom";
 
 export default function Header() {
@@ -23,7 +24,7 @@ export default function Header() {
       </div>
       <div className="searchbar">
         <input type="text" placeholder="Search your favourite artpiece" />
-        <img src="" alt="" />
+        <img src={Glass} alt="" />
       </div>
       <Link to="/login">
         <div className="login">
