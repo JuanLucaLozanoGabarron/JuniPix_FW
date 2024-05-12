@@ -54,6 +54,7 @@ hr {
   font-weight: 600;
   font-size: 11px;
   margin-right: 20px;
+  outline: none;
 }
 
 .searchAi button {

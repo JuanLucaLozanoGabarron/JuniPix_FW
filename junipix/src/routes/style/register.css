@@ -42,6 +42,7 @@ hr {
   justify-content: space-between;
   font-size: 11px;
   margin-right: 100px;
+  outline: none;
 }
 
 #name {
