@@ -10,7 +10,6 @@ import Login from "./routes/Login";
 import Register from "./routes/Register";
 import Profile, { profileData } from "./routes/Profile.jsx";
 import reportWebVitals from "./reportWebVitals";
-import Background from "./components/Background";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 <style>
