@@ -12,9 +12,9 @@
 }
 
 .collage {
-  width: 500px;
-  height: 550px;
-  background-color: blue;
+  width: 475px;
+  height: 575px;
+  margin-left: 30px;
 }
 
 .title {
@@ -53,4 +53,13 @@
 
 .createYourArtpiece img {
   height: 25px;
+}
+
+.background {
+  height: 100vh;
+  width: 350px;
+  position: fixed;
+  background-image: url("./../../components/images/background.jpeg");
+  background-position: left;
+  overflow: hidden;
 }
