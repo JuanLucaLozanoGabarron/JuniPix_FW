@@ -7,36 +7,36 @@ import { Gallery } from "react-grid-gallery";
 function App() {
   const images1 = [
     {
-      src: "https://i.postimg.cc/5NnvLNyP/la-nuit-etoilee.jpg",
+      src: "https://i.postimg.cc/NfsnYDnL/temp-Image-QFHUg-V.avif",
       width: 180,
       height: 190,
     },
     {
-      src: "https://i.postimg.cc/ZYXXZ44M/michelangelo-buonarroti-100-v-gseapremiumxl.jpg",
+      src: "https://i.postimg.cc/5tC7pRXK/temp-Image-WXet-IZ.avif",
       width: 290,
       height: 190,
     },
   ];
   const images2 = [
     {
-      src: "https://i.postimg.cc/d37M60v8/Vincenzo-Camuccini-La-morte-di-Cesare-1-1024x581.jpg",
+      src: "https://i.postimg.cc/VvYKfsD2/temp-Image-Xl-PCur.avif",
       width: 235,
       height: 190,
     },
     {
-      src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
+      src: "https://i.postimg.cc/XYTxZksf/temp-Imageqt9z-SJ.avif",
       width: 235,
       height: 190,
     },
   ];
   const images3 = [
     {
-      src: "https://i.postimg.cc/5NnvLNyP/la-nuit-etoilee.jpg",
+      src: "https://i.postimg.cc/85bb0QN4/temp-Imagea7-GXp-M.avif",
       width: 290,
       height: 190,
     },
     {
-      src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
+      src: "https://i.postimg.cc/X7qgQzhK/temp-Image-YQ1-GVv.avif",
       width: 180,
       height: 190,
     },

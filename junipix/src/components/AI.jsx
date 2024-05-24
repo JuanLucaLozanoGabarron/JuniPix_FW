@@ -1,4 +1,4 @@
-import React from "react";
+import { React} from "react";
 import "./style/ai.css";
 import Art from "./images/hand.jpeg";
 import Heart from "./images/heart.png";

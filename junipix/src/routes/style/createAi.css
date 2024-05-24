@@ -11,7 +11,7 @@
   font-size: 12px;
   color: gray;
   background-color: white;
-  border: solid 1px orange;
+  border: solid 1px #f59b1a;
   margin: auto;
 }
 
@@ -40,7 +40,7 @@ hr {
   width: 600px;
   display: flex;
   margin: auto;
-  margin-bottom: 35px;
+  margin-bottom: 25px;
 }
 
 .searchAi input {
@@ -63,7 +63,7 @@ hr {
   font-size: 12px;
   color: gray;
   background-color: white;
-  border: solid 1px orange;
+  border: solid 1px #f59b1a;
 }
 
 .cardsOfAi {
@@ -72,4 +72,21 @@ hr {
   justify-content: space-between;
   z-index: 2;
   margin-top: 40px;
+}
+
+.loading-bar {
+  width: 0px;
+  height: 8px;
+  background: #f59b1a;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+.loading-bar-full {
+  width: 600px;
+  height: 8px;
+  background: #f59b1a;
+  margin: auto;
+  margin-bottom: 25px;
+  transition: 15s;
 }
