@@ -1,0 +1,450 @@
+[
+  {
+    "id": 1,
+    "title": "Mona Lisa",
+    "author": "Leonardo da Vinci",
+    "style": "Renaissance",
+    "url": "https://i.postimg.cc/YChBB9gP/image.png"
+  },
+  {
+    "id": 2,
+    "title": "Starry Night",
+    "author": "Vincent van Gogh",
+    "style": "Post-Impressionism",
+    "url": "https://i.postimg.cc/PxbBQ8sC/image.png"
+  },
+  {
+    "id": 3,
+    "title": "The Persistence of Memory",
+    "author": "Salvador Dalí",
+    "style": "Surrealism",
+    "url": "https://i.postimg.cc/mkRdwb7V/image.png"
+  },
+  {
+    "id": 4,
+    "title": "The Scream",
+    "author": "Edvard Munch",
+    "style": "Expressionism",
+    "url": "https://i.postimg.cc/SsmZqT3K/image.png"
+  },
+  {
+    "id": 5,
+    "title": "Guernica",
+    "author": "Pablo Picasso",
+    "style": "Cubism",
+    "url": "https://i.postimg.cc/fy2x9ZCV/image.png"
+  },
+  {
+    "id": 6,
+    "title": "The Night Watch",
+    "author": "Rembrandt",
+    "style": "Baroque",
+    "url": "https://i.postimg.cc/xTXm4wgP/image.png"
+  },
+  {
+    "id": 7,
+    "title": "The Birth of Venus",
+    "author": "Sandro Botticelli",
+    "style": "Renaissance",
+    "url": "https://i.postimg.cc/CKgfdz0v/image.png"
+  },
+  {
+    "id": 8,
+    "title": "American Gothic",
+    "author": "Grant Wood",
+    "style": "Regionalism",
+    "url": "https://i.postimg.cc/mrjhDj8D/image.png"
+  },
+  {
+    "id": 9,
+    "title": "Girl with a Pearl Earring",
+    "author": "Johannes Vermeer",
+    "style": "Baroque",
+    "url": "https://i.postimg.cc/QdrMJwzC/image.png"
+  },
+  {
+    "id": 10,
+    "title": "The Last Supper",
+    "author": "Leonardo da Vinci",
+    "style": "Renaissance",
+    "url": "https://i.postimg.cc/7PG7svKn/image.png"
+  },
+  {
+    "id": 11,
+    "title": "The Creation of Adam",
+    "author": "Michelangelo",
+    "style": "Renaissance",
+    "url": "https://i.postimg.cc/rmC6cZJn/image.png"
+  },
+  {
+    "id": 12,
+    "title": "Las Meninas",
+    "author": "Diego Velázquez",
+    "style": "Baroque",
+    "url": "https://i.postimg.cc/XqGwdmzx/image.png"
+  },
+  {
+    "id": 13,
+    "title": "The Kiss",
+    "author": "Gustav Klimt",
+    "style": "Symbolism",
+    "url": "https://i.postimg.cc/6pNPcxN8/image.png"
+  },
+  {
+    "id": 14,
+    "title": "The Arnolfini Portrait",
+    "author": "Jan van Eyck",
+    "style": "Northern Renaissance",
+    "url": "https://i.postimg.cc/brt603C0/image.png"
+  },
+  {
+    "id": 15,
+    "title": "Liberty Leading the People",
+    "author": "Eugène Delacroix",
+    "style": "Romanticism",
+    "url": "https://i.postimg.cc/cHVhJfxv/image.png"
+  },
+  {
+    "id": 16,
+    "title": "The Garden of Earthly Delights",
+    "author": "Hieronymus Bosch",
+    "style": "Northern Renaissance",
+    "url": "https://i.postimg.cc/yY79yLbV/image.png"
+  },
+  {
+    "id": 17,
+    "title": "The Hay Wain",
+    "author": "John Constable",
+    "style": "Romanticism",
+    "url": "https://i.postimg.cc/brW7pZMg/image.png"
+  },
+  {
+    "id": 18,
+    "title": "Whistler's Mother",
+    "author": "James McNeill Whistler",
+    "style": "Realism",
+    "url": "https://i.postimg.cc/TwpGxv1R/image.png"
+  },
+  {
+    "id": 19,
+    "title": "Bal du moulin de la Galette",
+    "author": "Pierre-Auguste Renoir",
+    "style": "Impressionism",
+    "url": "https://i.postimg.cc/RZ4BFHhp/image.png"
+  },
+  {
+    "id": 20,
+    "title": "The Great Wave off Kanagawa",
+    "author": "Hokusai",
+    "style": "Ukiyo-e",
+    "url": "https://i.postimg.cc/9X95YpqN/image.png"
+  },
+  {
+    "id": 21,
+    "title": "The School of Athens",
+    "author": "Raphael",
+    "style": "Renaissance",
+    "url": "https://i.postimg.cc/3JgPGxDy/image.png"
+  },
+  {
+    "id": 22,
+    "title": "Venus de Milo",
+    "author": "Alexandros of Antioch",
+    "style": "Ancient Greek",
+    "url": "https://i.postimg.cc/x1fFby27/image.png"
+  },
+  {
+    "id": 23,
+    "title": "The Sleeping Gypsy",
+    "author": "Henri Rousseau",
+    "style": "Naïve art",
+    "url": "https://i.postimg.cc/SR0my1HH/image.png"
+  },
+  {
+    "id": 24,
+    "title": "Water Lilies",
+    "author": "Claude Monet",
+    "style": "Impressionism",
+    "url": "https://i.postimg.cc/tJtG9q3V/image.png"
+  },
+  {
+    "id": 25,
+    "title": "The Swing",
+    "author": "Jean-Honoré Fragonard",
+    "style": "Rococo",
+    "url": "https://i.postimg.cc/901gxrP1/image.png"
+  },
+  {
+    "id": 26,
+    "title": "The Son of Man",
+    "author": "René Magritte",
+    "style": "Surrealism",
+    "url": "https://i.postimg.cc/KzD0zRWF/image.png"
+  },
+  {
+    "id": 27,
+    "title": "The Two Fridas",
+    "author": "Frida Kahlo",
+    "style": "Surrealism",
+    "url": "https://i.postimg.cc/Vs47P0MW/image.png"
+  },
+  {
+    "id": 28,
+    "title": "Nighthawks",
+    "author": "Edward Hopper",
+    "style": "Realism",
+    "url": "https://i.postimg.cc/1tsKLy3d/image.png"
+  },
+  {
+    "id": 29,
+    "title": "Impression, Sunrise",
+    "author": "Claude Monet",
+    "style": "Impressionism",
+    "url": "https://i.postimg.cc/HLp2Npxh/image.png"
+  },
+  {
+    "id": 30,
+    "title": "Olympia",
+    "author": "Édouard Manet",
+    "style": "Realism",
+    "url": "https://i.postimg.cc/Xv7f8Q1M/image.png"
+  },
+  {
+    "id": 31,
+    "title": "The Raft of the Medusa",
+    "author": "Théodore Géricault",
+    "style": "Romanticism",
+    "url": "https://i.postimg.cc/Z5fcXGdY/image.png"
+  },
+  {
+    "id": 32,
+    "title": "The Starry Night Over the Rhône",
+    "author": "Vincent van Gogh",
+    "style": "Post-Impressionism",
+    "url": "https://i.postimg.cc/Z5kZpQRR/image.png"
+  },
+  {
+    "id": 33,
+    "title": "Bathers at Asnières",
+    "author": "Georges Seurat",
+    "style": "Post-Impressionism",
+    "url": "https://i.postimg.cc/2SwkYwkS/temp-Image-Cce-Qui.avif"
+  },
+  {
+    "id": 34,
+    "title": "The Ninth Wave",
+    "author": "Ivan Aivazovsky",
+    "style": "Romanticism",
+    "url": "https://i.postimg.cc/ydJsFCFD/image.png"
+  },
+  {
+    "id": 35,
+    "title": "A Sunday Afternoon on the Island of La Grande Jatte",
+    "author": "Georges Seurat",
+    "style": "Pointillism",
+    "url": "https://i.postimg.cc/5yddLY4r/image.png"
+  },
+  {
+    "id": 36,
+    "title": "The Card Players",
+    "author": "Paul Cézanne",
+    "style": "Post-Impressionism",
+    "url": "https://i.postimg.cc/gJ3B9MpM/image.png"
+  },
+  {
+    "id": 37,
+    "title": "The Fighting Temeraire",
+    "author": "J.M.W. Turner",
+    "style": "Romanticism",
+    "url": "https://i.postimg.cc/hj8MZf86/image.png"
+  },
+  {
+    "id": 38,
+    "title": "The Blue Boy",
+    "author": "Thomas Gainsborough",
+    "style": "Rococo",
+    "url": "https://i.postimg.cc/SxwryWDH/image.png"
+  },
+  {
+    "id": 39,
+    "title": "The Calling of St Matthew",
+    "author": "Caravaggio",
+    "style": "Baroque",
+    "url": "https://i.postimg.cc/6QJrsBQX/image.png"
+  },
+  {
+    "id": 40,
+    "title": "The Dance Class",
+    "author": "Edgar Degas",
+    "style": "Impressionism",
+    "url": "https://i.postimg.cc/L5XfkXxz/image.png"
+  },
+  {
+    "id": 41,
+    "title": "The Tower of Babel",
+    "author": "Pieter Bruegel the Elder",
+    "style": "Renaissance",
+    "url": "https://i.postimg.cc/x8hkKPJ2/image.png"
+  },
+  {
+    "id": 42,
+    "title": "The Peasant Wedding",
+    "author": "Pieter Bruegel the Elder",
+    "style": "Renaissance",
+    "url": "https://i.postimg.cc/t4HJpJF2/Pieter-Bruegel-the-Elder-Peasant-Wedding-Google-Art-Project-2.jpg"
+  },
+  {
+    "id": 43,
+    "title": "The Treachery of Images",
+    "author": "René Magritte",
+    "style": "Surrealism",
+    "url": "https://i.postimg.cc/RZz7yMhz/image.png"
+  },
+  {
+    "id": 44,
+    "title": "The Death of Marat",
+    "author": "Jacques-Louis David",
+    "style": "Neoclassicism",
+    "url": "https://i.postimg.cc/rmT7p6f6/image.png"
+  },
+  {
+    "id": 45,
+    "title": "Christina's World",
+    "author": "Andrew Wyeth",
+    "style": "Realism",
+    "url": "https://i.postimg.cc/4dwFSdV8/image.png"
+  },
+  {
+    "id": 46,
+    "title": "The Ambassadors",
+    "author": "Hans Holbein the Younger",
+    "style": "Northern Renaissance",
+    "url": "https://i.postimg.cc/FFWBbY9z/image.png"
+  },
+  {
+    "id": 47,
+    "title": "The Milkmaid",
+    "author": "Johannes Vermeer",
+    "style": "Baroque",
+    "url": "https://i.postimg.cc/HnRzq7xt/image.png"
+  },
+  {
+    "id": 48,
+    "title": "The Oath of the Horatii",
+    "author": "Jacques-Louis David",
+    "style": "Neoclassicism",
+    "url": "https://i.postimg.cc/8CfZb4zz/image.png"
+  },
+  {
+    "id": 49,
+    "title": "View of Toledo",
+    "author": "El Greco",
+    "style": "Mannerism",
+    "url": "https://i.postimg.cc/vTx8YpYd/image.png"
+  },
+  {
+    "id": 50,
+    "title": "The Triumph of Galatea",
+    "author": "Raphael",
+    "style": "Renaissance",
+    "url": "https://i.postimg.cc/909484qT/image.png"
+  },
+  {
+    "id": 51,
+    "title": "The Harvesters",
+    "author": "Pieter Bruegel the Elder",
+    "style": "Renaissance",
+    "url": "https://i.postimg.cc/3xYy1xr4/image.png"
+  },
+  {
+    "id": 52,
+    "title": "The Last Judgment",
+    "author": "Michelangelo",
+    "style": "Renaissance",
+    "url": "https://i.postimg.cc/pd1pPQfz/image.png"
+  },
+  {
+    "id": 53,
+    "title": "Self-Portrait",
+    "author": "Frida Kahlo",
+    "style": "Surrealism",
+    "url": "https://i.postimg.cc/1zT5kmSK/image.png"
+  },
+  {
+    "id": 54,
+    "title": "Wanderer above the Sea of Fog",
+    "author": "Caspar David Friedrich",
+    "style": "Romanticism",
+    "url": "https://i.postimg.cc/66hxRWP1/image.png"
+  },
+  {
+    "id": 55,
+    "title": "Liberty Leading the People",
+    "author": "Eugène Delacroix",
+    "style": "Romanticism",
+    "url": "https://i.postimg.cc/cHVhJfxv/image.png"
+  },
+  {
+    "id": 56,
+    "title": "The Sleepers",
+    "author": "Gustave Courbet",
+    "style": "Realism",
+    "url": "https://i.postimg.cc/44HBkB6v/image.png"
+  },
+  {
+    "id": 57,
+    "title": "The Card Players",
+    "author": "Paul Cézanne",
+    "style": "Post-Impressionism",
+    "url": "https://i.postimg.cc/gJ3B9MpM/image.png"
+  },
+  {
+    "id": 58,
+    "title": "The Child's Bath",
+    "author": "Mary Cassatt",
+    "style": "Impressionism",
+    "url": "https://i.postimg.cc/T1szwwkk/image.png"
+  },
+  {
+    "id": 59,
+    "title": "La Moulin de la Galette",
+    "author": "Pierre-Auguste Renoir",
+    "style": "Impressionism",
+    "url": "https://i.postimg.cc/HktC0pjL/image.png"
+  },
+  {
+    "id": 60,
+    "title": "The Nude Maja",
+    "author": "Francisco Goya",
+    "style": "Romanticism",
+    "url": "https://i.postimg.cc/8z4qJtnJ/image.png"
+  },
+  {
+    "id": 61,
+    "title": "The Three Graces",
+    "author": "Peter Paul Rubens",
+    "style": "Baroque",
+    "url": "https://i.postimg.cc/vmzrxLfC/image.png"
+  },
+  {
+    "id": 62,
+    "title": "The Lady of Shalott",
+    "author": "John William Waterhouse",
+    "style": "Pre-Raphaelite",
+    "url": "https://i.postimg.cc/NFRt44Yk/image.png"
+  },
+  {
+    "id": 63,
+    "title": "The Weeping Woman",
+    "author": "Pablo Picasso",
+    "style": "Cubism",
+    "url": "https://i.postimg.cc/wvfRz9sG/image.png"
+  },
+  {
+    "id": 64,
+    "title": "The Night Café",
+    "author": "Vincent van Gogh",
+    "style": "Post-Impressionism",
+    "url": "https://i.postimg.cc/Pr2Dzzxj/image.png"
+  }
+]
