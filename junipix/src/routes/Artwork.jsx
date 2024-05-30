@@ -2,8 +2,9 @@ import React from "react";
 import Header from "../components/Header";
 import "./style/artwork.css";
 import Card from "../components/Card";
+import Painting from "../paintings.json";
 
-export default function Artwork() {
+export default function Artwork(props) {
   return (
     <>
       <Header />
@@ -14,18 +15,17 @@ export default function Artwork() {
           <hr />
         </div>
         <div className="cardsOfArtwork">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {Painting.map((props) => {
+            return (
+              <Card
+                id={props.id}
+                title={props.title}
+                author={props.author}
+                style={props.style}
+                url={props.url}
+              />
+            );
+          })}
         </div>
       </div>
     </>
