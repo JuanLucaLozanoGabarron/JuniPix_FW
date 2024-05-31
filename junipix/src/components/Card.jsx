@@ -1,6 +1,5 @@
 import React from "react";
 import "./style/card.css";
-import Art from "./images/hand.jpeg";
 import Heart from "./images/heart.png";
 
 export default function Card(props) {
@@ -8,11 +7,11 @@ export default function Card(props) {
     <div className="cardArt" key={props.id}>
       <div className="likeArt">
         <button>
-          <img src={Heart} alt="" />
+          <img src={Heart} alt="like" />
         </button>
       </div>
       <div className="imageArt">
-        <img src={props.url} alt="" />
+        <img src={props.url} />
       </div>
       <div className="textArt">
         <div className="titleArt">
