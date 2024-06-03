@@ -29,6 +29,30 @@ hr {
 .cardsOfArtwork {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   z-index: 2;
+}
+
+.noResults {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+}
+
+.noResults h2 {
+  font-weight: 200;
+}
+
+#noResults {
+  margin-top: -90px;
+  width: 500px;
+}
+
+.headerSearch {
+  position: fixed;
+  z-index: 3;
+  height: 80px;
+  width: 1440px;
+  background-color: rgb(241, 236, 224, 0.8);
 }

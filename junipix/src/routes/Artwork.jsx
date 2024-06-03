@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import "./style/artwork.css";
 import Card from "../components/Card";
 import Painting from "../paintings.json";
+import NoResultsImage from "./images/noResult.png";
 
 export default function Artwork() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -29,26 +30,45 @@ export default function Artwork() {
 
   const pageTitle = searchQuery ? `${searchQuery}` : "Art Gallery";
 
+  const noResults = filteredPaintings.length === 0;
+
   return (
     <>
-      <Header />
+      <div className="headerSearch">
+        <Header />
+      </div>
       <div className="searchPage">
-        <div className="titleOfSearch">
-          <hr />
-          <h1>{pageTitle}</h1>
-          <hr />
-        </div>
+        {noResults ? (
+          <div className="titleOfSearch">
+            <hr />
+            <h1>No results </h1>
+            <hr />
+          </div>
+        ) : (
+          <div className="titleOfSearch">
+            <hr />
+            <h1>{pageTitle}</h1>
+            <hr />
+          </div>
+        )}
         <div className="cardsOfArtwork">
-          {filteredPaintings.map((painting) => (
-            <Card
-              key={painting.id}
-              id={painting.id}
-              title={painting.title}
-              author={painting.author}
-              style={painting.style}
-              url={painting.url}
-            />
-          ))}
+          {noResults ? (
+            <div className="noResults">
+              <p>No works of art matching your search - {pageTitle}</p>
+              <img id="noResults" src={NoResultsImage} alt="No results" />
+            </div>
+          ) : (
+            filteredPaintings.map((painting) => (
+              <Card
+                key={painting.id}
+                id={painting.id}
+                title={painting.title}
+                author={painting.author}
+                style={painting.style}
+                url={painting.url}
+              />
+            ))
+          )}
         </div>
       </div>
     </>
