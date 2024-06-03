@@ -43,3 +43,54 @@
   height: 230px;
   width: 230px;
 }
+
+.PopUp {
+  background-color: rgba(164, 152, 141, 0.8);
+  padding: 20px;
+  position: fixed;
+  left: 450px;
+  margin: auto;
+  width: 500px;
+  height: 350px;
+  z-index: 4;
+}
+
+.PopUp h2 {
+  font-family: Cinzel;
+  font-weight: 200;
+  font-size: 16px;
+}
+
+.PopUp p {
+  font-size: 12px;
+}
+
+.PopUp a {
+}
+
+.PopUpInfo {
+  background-color: white;
+  text-align: center;
+  width: 450px;
+  height: 300px;
+  margin: auto;
+  padding: 20px;
+}
+
+.PopUpInfo button {
+  width: 80px;
+  height: 30px;
+  font-size: 12px;
+  background-color: #a4988d;
+  border: none;
+  color: white;
+}
+
+.loginPopUp {
+  display: flex;
+  width: 200px;
+  margin: auto;
+  justify-content: space-between;
+  flex-direction: row;
+  font-size: 12px;
+}

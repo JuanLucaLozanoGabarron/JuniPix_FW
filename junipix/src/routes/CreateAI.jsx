@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import Header from "../components/Header";
 import Art from "../components/images/hand.jpeg";
 import Heart from "../components/images/heart.png";
+import { Link } from "react-router-dom";
 import AI from "../components/AI.jsx";
 import "./style/createAi.css";
 
@@ -42,6 +43,16 @@ export default function CreateAI() {
     setLoading(false);
   };
 
+  const [showPopAi, setShowPopAi] = useState(false);
+
+  const handleHeartClickAi = () => {
+    setShowPopAi(true);
+  };
+
+  const handleClosePopAi = () => {
+    setShowPopAi(false);
+  };
+
   return (
     <>
       <Header />
@@ -62,25 +73,45 @@ export default function CreateAI() {
         <div className="loading">
           <div className={loading ? "loading-bar-full" : "loading-bar"}></div>
         </div>
-
-        <div className="cardsOfAi">
-          {images.map((image, index) => (
-            <div className="cardAi">
-              <div className="likeAi">
-                <button>
-                  <img src={Heart} alt="" />
-                </button>
+        <>
+          <div className="cardsOfAi">
+            {images.map((image, index) => (
+              <div className="cardAi">
+                <div className="likeAi">
+                  <button onClick={handleHeartClickAi}>
+                    <img src={Heart} alt="" />
+                  </button>
+                </div>
+                <div className="imageAi">
+                  <img
+                    key={index}
+                    src={image.url === "/" ? Art : image.url}
+                    alt=""
+                  />
+                </div>
               </div>
-              <div className="imageAi">
-                <img
-                  key={index}
-                  src={image.url === "/" ? Art : image.url}
-                  alt=""
-                />
+            ))}
+          </div>
+
+          {showPopAi && (
+            <div className="PopUp">
+              <div className="PopUpInfo">
+                <h2>Log in or create an account</h2>
+                <p>To add this work to your favourites, please</p>
+                <div className="loginPopUp">
+                  <Link to="/login">
+                    <button>Login</button>
+                  </Link>
+                  or
+                  <Link to="/register">
+                    <button>Register</button>
+                  </Link>
+                </div>
+                <button onClick={handleClosePopAi}>Fermer</button>
               </div>
             </div>
-          ))}
-        </div>
+          )}
+        </>
       </div>
     </>
   );
