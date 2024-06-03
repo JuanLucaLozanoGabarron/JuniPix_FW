@@ -12,3 +12,12 @@ a {
   text-decoration: none;
   color: black;
 }
+
+.background {
+  height: 100vh;
+  width: 350px;
+  position: fixed;
+  background-image: url("./components/images/background.jpeg");
+  background-position: left;
+  overflow: hidden;
+}
