@@ -25,7 +25,9 @@ export default function Header() {
         <Link to="/artworks">
           <p>Works of Art</p>
         </Link>
-        <p>3D Gallery</p>
+        <Link to="/gallery">
+          <p>3D Gallery</p>
+        </Link>
         <Link to="/likes">
           <p>Likes</p>
         </Link>
