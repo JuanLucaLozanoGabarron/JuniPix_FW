@@ -154,6 +154,13 @@
     "url": "https://i.postimg.cc/x1fFby27/image.png"
   },
   {
+    "id": 66,
+    "title": "Galatea of the Spheres",
+    "author": "Salvador Dalí",
+    "style": "Surrealism",
+    "url": "https://i.postimg.cc/8zJhJz8k/image.png"
+  },
+  {
     "id": 23,
     "title": "The Sleeping Gypsy",
     "author": "Henri Rousseau",
@@ -243,6 +250,13 @@
     "author": "Georges Seurat",
     "style": "Pointillism",
     "url": "https://i.postimg.cc/5yddLY4r/image.png"
+  },
+  {
+    "id": 67,
+    "title": "The Temptation of St. Anthony",
+    "author": "Salvador Dalí",
+    "style": "Surrealism",
+    "url": "https://i.postimg.cc/L54mw5kz/image.png"
   },
   {
     "id": 36,
@@ -371,6 +385,13 @@
     "url": "https://i.postimg.cc/1zT5kmSK/image.png"
   },
   {
+    "id": 68,
+    "title": "The Hallucinogenic Toreador",
+    "author": "Salvador Dalí",
+    "style": "Surrealism",
+    "url": "https://i.postimg.cc/v81y1Jq8/image.png"
+  },
+  {
     "id": 54,
     "title": "Wanderer above the Sea of Fog",
     "author": "Caspar David Friedrich",
@@ -446,5 +467,12 @@
     "author": "Vincent van Gogh",
     "style": "Post-Impressionism",
     "url": "https://i.postimg.cc/Pr2Dzzxj/image.png"
+  },
+  {
+    "id": 65,
+    "title": "The Great Masturbator",
+    "author": "Salvador Dalí",
+    "style": "Surrealism",
+    "url": "https://i.postimg.cc/13YzDmKX/image.png"
   }
 ]
