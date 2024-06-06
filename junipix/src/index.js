@@ -11,6 +11,7 @@ import Register from "./routes/Register";
 import Profile, { profileData } from "./routes/Profile.jsx";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Gallery3D from "./3D-gallery/Gallery3D.jsx";
 
 <style>
   @import
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
   {
     path: "/gallery-1",
     element: <Gallery />,
+  },
+  {
+    path: "/gallery",
+    element: <Gallery3D />,
   },
   {
     path: "/login",
