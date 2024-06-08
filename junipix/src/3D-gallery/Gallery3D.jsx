@@ -8,7 +8,7 @@ import concreteTexture from "./images/floor.jpg";
 
 export default function Gallery3D() {
   const wallWidth = 30;
-  const wallHeight = 15;
+  const wallHeight = 10;
   const frontBackWallDepth = 0.1;
   const sideWallDepth = 0.1;
   const artpieceSpacing = 1.0;
