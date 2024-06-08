@@ -8,8 +8,7 @@ const cors = require("cors");
 const app = express();
 const port = 3000;
 
-const uri =
-  "mongodb+srv://dbJuan:dbJuan@ehb.xob3cm8.mongodb.net/JuniPix?retryWrites=true&w=majority&appName=EhB";
+const uri = `${process.env.REACT_APP_AUTH}`;
 
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
