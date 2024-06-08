@@ -79,27 +79,13 @@ hr {
   object-fit: cover;
 }
 
-.gallery1,
-.gallery2,
-.gallery3,
-.gallery4,
-.gallery5,
-.gallery6,
-.gallery7,
-.gallery8 {
+.galleryItem {
   width: 300px;
   display: flex;
   margin-bottom: 30px;
 }
 
-.gallery1 p,
-.gallery2 p,
-.gallery3 p,
-.gallery4 p,
-.gallery5 p,
-.gallery6 p,
-.gallery7 p,
-.gallery8 p {
+.galleryItem p {
   text-decoration: none;
   width: 100%;
   border-bottom: solid 1px;
@@ -108,14 +94,7 @@ hr {
   margin-right: 20px;
 }
 
-.gallery1 button,
-.gallery2 button,
-.gallery3 button,
-.gallery4 button,
-.gallery5 button,
-.gallery6 button,
-.gallery7 button,
-.gallery8 button {
+.galleryItem button {
   width: 100px;
   height: 30px;
   font-size: 12px;

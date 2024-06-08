@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style/card.css";
 import Heart from "./images/heart.png";
-import { Link } from "react-router-dom";
 
 export default function Card(props) {
   const [showPop, setShowPop] = useState(false);
@@ -10,7 +9,7 @@ export default function Card(props) {
 
   const handleHeartClick = async () => {
     setShowPop(true);
-    fetchGalleries();
+    await fetchGalleries();
   };
 
   const handleClosePopUp = () => {
@@ -18,36 +17,102 @@ export default function Card(props) {
   };
 
   const fetchGalleries = async () => {
-    const response = await fetch("http://localhost:3000/likes");
-    const galleries = await response.json();
-    setExistingGalleries(galleries);
+    try {
+      const response = await fetch("http://localhost:3000/likes");
+      const galleries = await response.json();
+      setExistingGalleries(galleries);
+    } catch (error) {
+      console.error("Error fetching galleries:", error);
+    }
   };
 
   const handleAddToExistingGallery = async (galleryId) => {
-    // Logique pour ajouter la carte à la galerie existante sélectionnée
-    // Note: à implémenter selon votre modèle de données
-    console.log(`Added to existing gallery: ${galleryId}`);
+    console.log(`Adding to existing gallery: ${galleryId}`);
+    try {
+      const response = await fetch(`http://localhost:3000/likes/${galleryId}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          artpiece: {
+            title: props.title,
+            author: props.author,
+            style: props.style,
+            url: props.url,
+          },
+        }),
+      });
+
+      if (response.ok) {
+        console.log(`Added to existing gallery: ${galleryId}`);
+      } else {
+        console.error("Error adding to existing gallery");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
+
+  // const handleAddToExistingGallery = async (galleryId) => {
+  //  console.log(`Adding to existing gallery: ${galleryId}`);
+  // try {
+  //   const response = await fetch(`http://localhost:3000/likes/${galleryId}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //    },
+  //    body: JSON.stringify({
+  //      artpiece: {
+  //        title: props.title,
+  //        author: props.author,
+  //        style: props.style,
+  //       url: props.url,
+  //     },
+  //   }),
+  // });
+  //
+  // if (response.ok) {
+  //   console.log(`Added to existing gallery: ${galleryId}`);
+  // } else {
+  //   console.error("Error adding to existing gallery");
+  // }
+  // } catch (error) {
+  //   console.error("Error:", error);
+  //  }
+  // };
 
   const handleCreateNewGallery = async () => {
     const newGallery = {
       userid: "1", // Remplacez par l'ID de l'utilisateur actuel
-      id: new Date().getTime().toString(), // Génère un ID unique
+      id: new Date().getTime().toString(),
       name: newGalleryName,
-      artpieces: [],
+      artpieces: [
+        {
+          id: props.id,
+          title: props.title,
+          author: props.author,
+          style: props.style,
+          url: props.url,
+        },
+      ],
     };
 
-    const response = await fetch("http://localhost:3000/likes", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newGallery),
-    });
+    try {
+      const response = await fetch("http://localhost:3000/likes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newGallery),
+      });
 
-    const gallery = await response.json();
-    setExistingGalleries([...existingGalleries, gallery]);
-    setShowPop(false); // Ferme la pop-up après la création
+      const gallery = await response.json();
+      setExistingGalleries([...existingGalleries, gallery]);
+      setShowPop(false); // Ferme la pop-up après la création
+    } catch (error) {
+      console.error("Error creating new gallery:", error);
+    }
   };
 
   return (
@@ -59,7 +124,7 @@ export default function Card(props) {
           </button>
         </div>
         <div className="imageArt">
-          <img src={props.url} />
+          <img src={props.url} alt={props.title} />
         </div>
         <div className="textArt">
           <div className="titleArt">
