@@ -11,6 +11,7 @@ import Register from "./routes/Register";
 import Profile, { profileData } from "./routes/Profile.jsx";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ListGallery from "./routes/ListGallery";
 import Gallery3D from "./3D-gallery/Gallery3D.jsx";
 
 <style>
@@ -38,11 +39,15 @@ const router = createBrowserRouter([
     element: <Likes />,
   },
   {
-    path: "/gallery-1",
+    path: "/likes/:id",
     element: <Gallery />,
   },
   {
-    path: "/gallery",
+    path: "/galleries",
+    element: <ListGallery />,
+  },
+  {
+    path: "/gallery/:id/images",
     element: <Gallery3D />,
   },
   {
