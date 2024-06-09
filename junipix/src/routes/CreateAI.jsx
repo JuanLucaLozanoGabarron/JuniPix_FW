@@ -23,11 +23,6 @@ export default function CreateAI(props) {
     setShowPopAi(false);
   };
 
-  const auth = {
-    apiKey: `${process.env.REACT_APP_MY_API_KEY}`,
-    api: `${process.env.REACT_APP_MY_API}`,
-  };
-
   const imageGenerator = async () => {
     if (inputRef.current.value === "") {
       return;
