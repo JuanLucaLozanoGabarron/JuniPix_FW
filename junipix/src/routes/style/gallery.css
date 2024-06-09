@@ -13,16 +13,9 @@
   font-weight: 200;
 }
 
-.listAi {
+.listArtPieces {
   width: 1000px;
   flex-wrap: wrap;
   display: flex;
-  justify-content: space-between;
-}
-
-.listExistingPaints {
-  width: 1000px;
-  flex-wrap: wrap;
-  display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
