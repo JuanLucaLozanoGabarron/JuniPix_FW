@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
-import { useLoader } from "@react-three/fiber";
 
 export default function Artpiece({ position, rotation, scale, texture }) {
-  const textureMap = useLoader(THREE.TextureLoader, texture);
+  const meshRef = useRef();
+
+  useEffect(() => {
+    const loader = new THREE.TextureLoader();
+    loader.load(texture, (tex) => {
+      if (meshRef.current) {
+        meshRef.current.material.map = tex;
+        meshRef.current.material.needsUpdate = true;
+      }
+    });
+  }, [texture]);
+
   return (
-    <mesh position={position} rotation={rotation} scale={scale}>
+    <mesh ref={meshRef} position={position} rotation={rotation} scale={scale}>
       <boxGeometry args={[1, 1, 0.1]} />
-      <meshBasicMaterial map={textureMap} />
+      <meshBasicMaterial color={"white"} />
     </mesh>
   );
 }

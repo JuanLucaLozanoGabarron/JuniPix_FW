@@ -152,13 +152,26 @@ export default function Gallery3D() {
                 artpiecePlacements[index].position[2]
               );
             return (
-              <Artpiece
-                key={index}
-                position={artpiecePlacements[index].position}
-                rotation={artpiecePlacements[index].rotation}
-                scale={[artpieceWidth, artpieceHeight, 0.1]}
-                texture={texture.texture}
-              />
+              <React.Fragment key={index}>
+                <Artpiece
+                  position={artpiecePlacements[index].position}
+                  rotation={artpiecePlacements[index].rotation}
+                  scale={[artpieceWidth, artpieceHeight, 0.1]}
+                  texture={texture.texture}
+                />
+                <spotLight
+                  position={[
+                    artpiecePlacements[index].position[0],
+                    artpiecePlacements[index].position[1] + 5,
+                    artpiecePlacements[index].position[2],
+                  ]}
+                  angle={0.5}
+                  penumbra={0.5}
+                  intensity={1}
+                  castShadow
+                  target-position={artpiecePlacements[index].position}
+                />
+              </React.Fragment>
             );
           })}
         </group>
