@@ -8,7 +8,7 @@ import concreteTexture from "./images/floor.jpg";
 
 export default function Gallery3D() {
   const wallWidth = 30;
-  const wallHeight = 10;
+  const wallHeight = 12;
   const frontBackWallDepth = 0.1;
   const sideWallDepth = 0.1;
   const artpieceSpacing = 1.0;
@@ -142,7 +142,7 @@ export default function Gallery3D() {
           receiveShadow
         >
           <boxGeometry args={[wallWidth, wallHeight, sideWallDepth]} />
-          <meshBasicMaterial color={new THREE.Color("white")} />
+          <meshBasicMaterial color={new THREE.Color("whitesmoke")} />
         </mesh>
 
         <mesh
@@ -151,7 +151,7 @@ export default function Gallery3D() {
           receiveShadow
         >
           <boxGeometry args={[wallWidth, wallHeight, sideWallDepth]} />
-          <meshBasicMaterial color={new THREE.Color("white")} />
+          <meshBasicMaterial color={new THREE.Color("whitesmoke")} />
         </mesh>
 
         {textureLoaded && concreteTextureObj && (
@@ -164,6 +164,15 @@ export default function Gallery3D() {
             <meshBasicMaterial map={concreteTextureObj} />
           </mesh>
         )}
+
+        <mesh
+          position={[0, wallHeight / 2, 0]}
+          rotation={[Math.PI / 2, 0, 0]}
+          receiveShadow
+        >
+          <boxGeometry args={[wallWidth, wallWidth, 0.1]} />
+          <meshBasicMaterial color={new THREE.Color("lightgray")} />
+        </mesh>
 
         <group>
           {gallery &&
