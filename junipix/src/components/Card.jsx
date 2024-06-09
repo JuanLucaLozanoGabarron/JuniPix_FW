@@ -27,24 +27,35 @@ export default function Card(props) {
   };
 
   const handleAddToExistingGallery = async (galleryId) => {
-    console.log(`Adding to existing gallery: ${galleryId}`);
+   console.log(`Adding to existing gallery: ${galleryId}`);
     try {
-      const response = await fetch(`http://localhost:3000/likes/${galleryId}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          artpiece: {
-            title: props.title,
-            author: props.author,
-            style: props.style,
-            url: props.url,
-          },
-        }),
-      });
+      const response = await fetch(`http://localhost:3000/likes/${galleryId}`);
+      const gallery = await response.json();
 
-      if (response.ok) {
+      if (gallery.artpieces.length >= 6) {
+        console.log("Maximum art pieces reached for this gallery");
+        return;
+      }
+
+      const responseAdd = await fetch(
+        `http://localhost:3000/likes/${galleryId}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            artpiece: {
+              title: props.title,
+              author: props.author,
+              style: props.style,
+              url: props.url,
+            },
+          }),
+        }
+      );
+
+      if (responseAdd.ok) {
         console.log(`Added to existing gallery: ${galleryId}`);
       } else {
         console.error("Error adding to existing gallery");
@@ -54,37 +65,9 @@ export default function Card(props) {
     }
   };
 
-  // const handleAddToExistingGallery = async (galleryId) => {
-  //  console.log(`Adding to existing gallery: ${galleryId}`);
-  // try {
-  //   const response = await fetch(`http://localhost:3000/likes/${galleryId}`, {
-  //     method: "PUT",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //    },
-  //    body: JSON.stringify({
-  //      artpiece: {
-  //        title: props.title,
-  //        author: props.author,
-  //        style: props.style,
-  //       url: props.url,
-  //     },
-  //   }),
-  // });
-  //
-  // if (response.ok) {
-  //   console.log(`Added to existing gallery: ${galleryId}`);
-  // } else {
-  //   console.error("Error adding to existing gallery");
-  // }
-  // } catch (error) {
-  //   console.error("Error:", error);
-  //  }
-  // };
-
   const handleCreateNewGallery = async () => {
     const newGallery = {
-      userid: "1", // Remplacez par l'ID de l'utilisateur actuel
+      userid: "1",
       id: new Date().getTime().toString(),
       name: newGalleryName,
       artpieces: [
@@ -109,7 +92,7 @@ export default function Card(props) {
 
       const gallery = await response.json();
       setExistingGalleries([...existingGalleries, gallery]);
-      setShowPop(false); // Ferme la pop-up après la création
+      setShowPop(false);
     } catch (error) {
       console.error("Error creating new gallery:", error);
     }
