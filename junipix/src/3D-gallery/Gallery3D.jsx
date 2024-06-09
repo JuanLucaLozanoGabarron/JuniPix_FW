@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Loader } from "@react-three/drei";
+import { useParams } from "react-router-dom";
 import * as THREE from "three";
 import Artpiece from "./Artpiece.jsx";
-import artpieceData from "./artpieces.json";
+import Card from "../components/Card.jsx";
+
 import concreteTexture from "./images/floor.jpg";
+import artpieceData from "./artpieces.json";
 
 export default function Gallery3D() {
   const wallWidth = 30;
@@ -13,6 +16,8 @@ export default function Gallery3D() {
   const sideWallDepth = 0.1;
   const artpieceSpacing = 1.0;
 
+  const { id } = useParams();
+  const [gallery, setGallery] = useState(null);
   const [textureLoaded, setTextureLoaded] = useState(false);
   const [concreteTextureObj, setConcreteTextureObj] = useState(null);
 
@@ -45,6 +50,24 @@ export default function Gallery3D() {
     }
 
     return { artpieceWidth, artpieceHeight };
+  };
+
+  useEffect(() => {
+    fetchGallery();
+  }, [id]);
+
+  const fetchGallery = async () => {
+    try {
+      const response = await fetch(`http://localhost:3000/likes/${id}`);
+      if (response.ok) {
+        const galleryData = await response.json();
+        setGallery(galleryData);
+      } else {
+        console.error("Error fetching gallery");
+      }
+    } catch (error) {
+      console.error("Error fetching gallery:", error);
+    }
   };
 
   const artpiecePlacements = [
@@ -146,34 +169,24 @@ export default function Gallery3D() {
         )}
 
         <group>
-          {artpieceData.map((texture, index) => {
-            const { artpieceWidth, artpieceHeight } =
-              calculateArtpieceDimensions(
-                artpiecePlacements[index].position[2]
+          {gallery &&
+            gallery.artpieces.map((artpiece, index) => {
+              const { artpieceWidth, artpieceHeight } =
+                calculateArtpieceDimensions(
+                  artpiecePlacements[index].position[2]
+                );
+              console.log(artpiece.url);
+              return (
+                <React.Fragment key={index}>
+                  <Artpiece
+                    position={artpiecePlacements[index].position}
+                    rotation={artpiecePlacements[index].rotation}
+                    scale={[artpieceWidth, artpieceHeight, 0.1]}
+                    texture={artpiece.url}
+                  />
+                </React.Fragment>
               );
-            return (
-              <React.Fragment key={index}>
-                <Artpiece
-                  position={artpiecePlacements[index].position}
-                  rotation={artpiecePlacements[index].rotation}
-                  scale={[artpieceWidth, artpieceHeight, 0.1]}
-                  texture={texture.texture}
-                />
-                <spotLight
-                  position={[
-                    artpiecePlacements[index].position[0],
-                    artpiecePlacements[index].position[1] + 5,
-                    artpiecePlacements[index].position[2],
-                  ]}
-                  angle={0.5}
-                  penumbra={0.5}
-                  intensity={1}
-                  castShadow
-                  target-position={artpiecePlacements[index].position}
-                />
-              </React.Fragment>
-            );
-          })}
+            })}
         </group>
       </Canvas>
     </div>
