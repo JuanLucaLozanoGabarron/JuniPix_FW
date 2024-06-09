@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import "./style/gallery.css";
-import Card from "../components/Card"; // Assurez-vous d'importer le composant Card
+import Card from "../components/Card";
 
 export default function Gallery() {
   const { id } = useParams();

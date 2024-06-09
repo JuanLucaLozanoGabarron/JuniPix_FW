@@ -4,10 +4,7 @@ import { OrbitControls, Loader } from "@react-three/drei";
 import { useParams } from "react-router-dom";
 import * as THREE from "three";
 import Artpiece from "./Artpiece.jsx";
-import Card from "../components/Card.jsx";
-
 import concreteTexture from "./images/floor.jpg";
-import artpieceData from "./artpieces.json";
 
 export default function Gallery3D() {
   const wallWidth = 30;

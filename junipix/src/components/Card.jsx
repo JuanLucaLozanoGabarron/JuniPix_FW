@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./style/card.css";
 import Heart from "./images/heart.png";
 
@@ -27,7 +27,7 @@ export default function Card(props) {
   };
 
   const handleAddToExistingGallery = async (galleryId) => {
-   console.log(`Adding to existing gallery: ${galleryId}`);
+    console.log(`Adding to existing gallery: ${galleryId}`);
     try {
       const response = await fetch(`http://localhost:3000/likes/${galleryId}`);
       const gallery = await response.json();

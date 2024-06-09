@@ -1,7 +1,4 @@
 const express = require("express");
-const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
 const { MongoClient, ObjectId } = require("mongodb");
 const cors = require("cors");
 
