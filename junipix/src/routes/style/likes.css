@@ -103,6 +103,12 @@ hr {
   border: solid 1px orange;
 }
 
+.galleryItem button:hover {
+  background-color: orange;
+  border: solid 1px orange;
+  color: white;
+}
+
 #loginLikes {
   width: 80px;
   height: 30px;
