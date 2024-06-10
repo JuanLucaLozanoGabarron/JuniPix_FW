@@ -46,13 +46,20 @@ export default function Profile() {
       ) : (
         <>
           <Header />
-          <div className="profile">
-            <div className="profileInfo">
-              <h1>Profile</h1>
-
-              <p>Your Name: {localStorage.getItem("name")}</p>
-              <p>Your Email: {localStorage.getItem("email")}</p>
-              <button onClick={logout}>Logout</button>
+          <div className="profilePage">
+            <div className="titleOfProfile">
+              <hr />
+              <h1>Profile</h1> <hr />
+            </div>
+            <div className="infoProfile">
+              <div className="infoProfileData">
+                <p>Your Name: {localStorage.getItem("name")}</p>
+                <p>Your Email: {localStorage.getItem("email")}</p>
+                <button onClick={logout}>Logout</button>
+              </div>
+              <div className="image">
+                <img id="large" src={LoginImage} alt="Login" />
+              </div>
             </div>
           </div>
         </>
