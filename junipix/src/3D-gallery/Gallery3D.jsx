@@ -5,6 +5,12 @@ import { useParams } from "react-router-dom";
 import * as THREE from "three";
 import Artpiece from "./Artpiece.jsx";
 import concreteTexture from "./images/floor.jpg";
+import { extend } from "@react-three/fiber";
+import { Link } from "react-router-dom";
+import "./style/gallery3D.css";
+
+extend({ THREE });
+extend({ OrbitControls, Loader });
 
 export default function Gallery3D() {
   const wallWidth = 30;
@@ -120,6 +126,12 @@ export default function Gallery3D() {
         left: 0,
       }}
     >
+      <Link to="/galleries">
+        <div className="backButton">
+          <button>Back to galleries</button>
+        </div>
+      </Link>
+
       <Canvas style={{ width: "100%", height: "100%" }}>
         <ambientLight />
         <pointLight position={[10, 10, 10]} />

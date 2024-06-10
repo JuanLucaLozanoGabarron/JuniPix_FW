@@ -1,0 +1,16 @@
+.backButton {
+  width: 200px;
+  position: fixed;
+  left: 50px;
+  top: 50px;
+  z-index: 6;
+}
+
+.backButton button {
+  width: 150px;
+  height: 30px;
+  font-size: 12px;
+  background-color: #a4988d;
+  border: none;
+  color: white;
+}
