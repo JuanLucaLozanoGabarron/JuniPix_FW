@@ -1,5 +1,5 @@
 .header {
-  height: 65px;
+  height: 80px;
   width: 1200px;
   padding: 20px 80px;
   z-index: 3;
@@ -8,6 +8,7 @@
   justify-content: space-between;
   align-items: center;
   font-size: 12px;
+  background-color: rgb(241, 236, 224, 0.8);
 }
 
 .logo {
