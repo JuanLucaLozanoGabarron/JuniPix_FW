@@ -35,6 +35,15 @@ hr {
   width: 500px;
 }
 
+.infoProfileData button {
+  width: 80px;
+  height: 30px;
+  font-size: 12px;
+  background-color: #a4988d;
+  border: none;
+  color: white;
+}
+
 .infoProfile {
   display: flex;
   margin: auto;
