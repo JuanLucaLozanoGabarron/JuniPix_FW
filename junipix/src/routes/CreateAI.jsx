@@ -56,7 +56,10 @@ export default function CreateAI(props) {
     try {
       const response = await fetch("http://localhost:3000/likes");
       const galleries = await response.json();
-      setExistingGalleries(galleries);
+      const userGalleries = galleries.filter(
+        (gallery) => gallery.userid === userId
+      );
+      setExistingGalleries(userGalleries);
     } catch (error) {
       console.error("Error fetching galleries:", error);
     }
@@ -64,8 +67,6 @@ export default function CreateAI(props) {
 
   const handleAddToExistingGallery = async (galleryId) => {
     if (!selectedImage) return;
-    const userId = localStorage.getItem("id");
-
     console.log(`Adding to existing gallery: ${galleryId}`);
     try {
       const response = await fetch(`http://localhost:3000/likes/${galleryId}`);
@@ -162,15 +163,14 @@ export default function CreateAI(props) {
         <>
           <div className="cardsOfAi">
             {images.map((image, index) => (
-              <div className="cardAi">
+              <div className="cardAi" key={index}>
                 <div className="likeAi">
                   <button onClick={() => handleHeartClickAi(image)}>
-                    <img src={Heart} alt="" />
+                    <img src={Heart} alt="like" />
                   </button>
                 </div>
                 <div className="imageAi">
                   <img
-                    key={index}
                     src={image.url === "/" ? Art : image.url}
                     alt=""
                   />
