@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style/header.css";
 import Logo from "./images/logo.png";
 import Glass from "./images/glass_black.png";
@@ -6,7 +6,15 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function Header() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [username, setUsername] = useState(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedName = localStorage.getItem("name");
+    if (storedName) {
+      setUsername(storedName);
+    }
+  }, []);
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
@@ -43,9 +51,9 @@ export default function Header() {
           <img src={Glass} alt="search icon" />
         </button>
       </form>
-      <Link to="/login">
+      <Link to={username ? "/profile" : "/login"}>
         <div className="login">
-          <button>Login</button>
+          <button>{username ? username : "Login"}</button>
         </div>
       </Link>
     </div>
