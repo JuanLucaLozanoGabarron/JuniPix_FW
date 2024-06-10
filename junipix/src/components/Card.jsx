@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style/card.css";
 import Heart from "./images/heart.png";
 import { Link } from "react-router-dom";
@@ -22,7 +22,10 @@ export default function Card(props) {
     try {
       const response = await fetch("http://localhost:3000/likes");
       const galleries = await response.json();
-      setExistingGalleries(galleries);
+      const userGalleries = galleries.filter(
+        (gallery) => gallery.userid === userId
+      );
+      setExistingGalleries(userGalleries);
     } catch (error) {
       console.error("Error fetching galleries:", error);
     }
@@ -30,7 +33,6 @@ export default function Card(props) {
 
   const handleAddToExistingGallery = async (galleryId) => {
     console.log(`Adding to existing gallery: ${galleryId}`);
-    const userId = localStorage.getItem("id");
     try {
       const response = await fetch(`http://localhost:3000/likes/${galleryId}`);
       const gallery = await response.json();
