@@ -66,7 +66,7 @@ export default function Likes() {
       <div className="likePage">
         <div className="titleOfLikes">
           <hr />
-          <h1>Your likes</h1>
+          <h1>Your Likes</h1>
           <hr />
         </div>
         <div className="likesInfo">
