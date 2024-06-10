@@ -1,7 +1,12 @@
+.homepage {
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
 .firstInfo {
-  position: fixed;
-  margin-top: 160px;
-  left: 300px;
+  margin: 160px 0px 120px 50px;
   z-index: 2;
   display: flex;
 }
@@ -9,6 +14,7 @@
 .text {
   width: 450px;
   height: 550px;
+  padding-right: 100px;
 }
 
 .collage {
@@ -54,4 +60,3 @@
 .createYourArtpiece img {
   height: 25px;
 }
-
