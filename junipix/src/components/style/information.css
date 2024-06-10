@@ -1,0 +1,54 @@
+.usage {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 1000px;
+  margin-bottom: 50px;
+}
+
+.aiFunction,
+.galleryFunction,
+.searchFunction {
+  background-color: white;
+  width: 300px;
+  height: 600px;
+  border-radius: 150px 150px 0px 0px;
+}
+
+.titleInfo {
+  font-family: Cinzel;
+  margin-top: 80px;
+  font-weight: 200;
+  font-size: 18px;
+  text-align: center;
+}
+
+.explanation {
+  margin: 30px 20px 13px 20px;
+  font-size: 11px;
+}
+
+.explanationText {
+  height: 145px;
+}
+
+.explanationImg {
+  width: 260px;
+  height: 260px;
+}
+
+.explanationImg img {
+  width: 100%;
+}
+
+.aiFunction button,
+.galleryFunction button,
+.searchFunction button {
+  width: 80px;
+  height: 30px;
+  font-size: 12px;
+  background-color: #a4988d;
+  border: none;
+  color: white;
+  margin-left: 110px;
+}
