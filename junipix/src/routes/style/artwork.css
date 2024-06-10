@@ -48,11 +48,3 @@ hr {
   margin-top: -90px;
   width: 500px;
 }
-
-.headerSearch {
-  position: fixed;
-  z-index: 3;
-  height: 80px;
-  width: 1440px;
-  background-color: rgb(241, 236, 224, 0.8);
-}

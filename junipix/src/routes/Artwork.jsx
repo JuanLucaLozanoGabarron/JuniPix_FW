@@ -34,9 +34,7 @@ export default function Artwork() {
 
   return (
     <>
-      <div className="headerSearch">
-        <Header />
-      </div>
+      <Header />
       <div className="searchPage">
         {noResults ? (
           <div className="titleOfSearch">
