@@ -1,0 +1,43 @@
+body {
+  font-family: Montserrat;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 100;
+}
+
+.profileInfo {
+  padding: 0px 90px 90px 90px;
+  display: flex;
+  flex-direction: column;
+  font-family: Montserrat;
+  margin-top: 100px;
+}
+
+.info {
+  display: flex;
+}
+
+#large {
+  height: 400px;
+  position: fixed;
+  top: 100px;
+  right: 200px;
+}
+
+@media (min-width: 768px) {
+  .profileInfo {
+    display: flex;
+  }
+}
+
+@media (min-width: 1024px) {
+  .profileInfo {
+    width: 900px;
+    margin-left: 250px;
+    width: 1000px;
+    padding: 0px;
+    justify-content: space-between;
+  }
+}

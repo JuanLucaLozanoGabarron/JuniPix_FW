@@ -41,6 +41,8 @@ export default function Login() {
           timer: 2000,
         });
         localStorage.setItem("id", data.id);
+        localStorage.setItem("name", data.name);
+        localStorage.setItem("email", data.email);  
         navigate("/profile");
       });
   };
