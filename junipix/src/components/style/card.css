@@ -96,32 +96,10 @@
 
 .choiseGallery {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  overflow-x: scroll;
+  justify-content: space-evenly;
   height: 80px;
   width: 300px;
   margin: auto;
-}
-
-.choiseGallery::-webkit-scrollbar {
-  width: 1px;
-}
-
-.choiseGallery::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-.choiseGallery::-webkit-scrollbar-thumb {
-  background: #beb2a6;
-}
-
-.choiseGallery::-webkit-scrollbar-thumb:hover {
-  background: #a4988d;
-}
-
-.choiseGallery::-webkit-scrollbar-button {
-  display: none;
 }
 
 .newGallery {
@@ -145,4 +123,8 @@
 
 #close {
   margin-top: 10px;
+}
+
+#popUpLogin {
+  margin-right: 20px;
 }

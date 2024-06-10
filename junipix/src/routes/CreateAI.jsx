@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Art from "../components/images/hand.jpeg";
 import Heart from "../components/images/heart.png";
 import "./style/createAi.css";
+import { Link } from "react-router-dom";
 
 export default function CreateAI(props) {
   const [images, setImages] = useState([]);
@@ -12,6 +13,7 @@ export default function CreateAI(props) {
   const [newGalleryName, setNewGalleryName] = useState("");
   const [existingGalleries, setExistingGalleries] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [userId, setUserId] = useState(localStorage.getItem("id"));
 
   const handleHeartClickAi = async (image) => {
     setSelectedImage(image);
@@ -62,6 +64,7 @@ export default function CreateAI(props) {
 
   const handleAddToExistingGallery = async (galleryId) => {
     if (!selectedImage) return;
+    const userId = localStorage.getItem("id");
 
     console.log(`Adding to existing gallery: ${galleryId}`);
     try {
@@ -86,6 +89,7 @@ export default function CreateAI(props) {
               author: "AiPix",
               style: "AI",
               url: selectedImage.url,
+              userid: userId,
             },
           }),
         }
@@ -105,7 +109,7 @@ export default function CreateAI(props) {
     if (!selectedImage) return;
 
     const newGallery = {
-      userid: "1",
+      userid: userId,
       id: new Date().getTime().toString(),
       name: newGalleryName,
       artpieces: [
@@ -178,39 +182,51 @@ export default function CreateAI(props) {
           {showPopAi && (
             <div className="PopUpAi" key={props.id}>
               <div className="PopUpInfoAi">
-                <h2>Add to Gallery</h2>
-                <p>Choose an option:</p>
-                <div className="options">
-                  <div>
-                    <h3>Add to existing gallery:</h3>
-                    <div className="choiseGallery">
-                      {existingGalleries.map((gallery) => (
-                        <button
-                          key={gallery._id}
-                          onClick={() =>
-                            handleAddToExistingGallery(gallery._id)
-                          }
-                        >
-                          {gallery.name}
-                        </button>
-                      ))}
+                {userId ? (
+                  <>
+                    <h2>Add to Gallery</h2>
+                    <p>Choose an option:</p>
+                    <div className="options">
+                      <div>
+                        <h3>Add to existing gallery:</h3>
+                        <div className="choiseGallery">
+                          {existingGalleries.map((gallery) => (
+                            <button
+                              key={gallery._id}
+                              onClick={() =>
+                                handleAddToExistingGallery(gallery._id)
+                              }
+                            >
+                              {gallery.name}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                      <div>
+                        <h3>Create new gallery:</h3>
+                        <div className="newGallery">
+                          <input
+                            type="text"
+                            placeholder="Enter new gallery name"
+                            value={newGalleryName}
+                            onChange={(e) => setNewGalleryName(e.target.value)}
+                          />
+                          <button onClick={handleCreateNewGallery}>
+                            Create new gallery
+                          </button>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    <h3>Create new gallery:</h3>
-                    <div className="newGallery">
-                      <input
-                        type="text"
-                        placeholder="Enter new gallery name"
-                        value={newGalleryName}
-                        onChange={(e) => setNewGalleryName(e.target.value)}
-                      />
-                      <button onClick={handleCreateNewGallery}>
-                        Create new gallery
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                  </>
+                ) : (
+                  <>
+                    <h2>Not Logged In</h2>
+                    <p>You must be logged in to like art pieces.</p>
+                    <Link to="/login">
+                      <button id="popUpLogin">Go to Login</button>
+                    </Link>
+                  </>
+                )}
                 <button id="close" onClick={handleClosePopUpAi}>
                   Close
                 </button>
