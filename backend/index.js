@@ -72,7 +72,7 @@ app.post("/login", async (req, res) => {
     if (!isMatch) {
       return res.status(400).json({ message: "Invalid credentials" });
     }
-    res.json({ id: user.id });
+    res.json({ id: user.id, name: user.name, email: user.email });
   } catch (error) {
     res.status(500).json({ message: "Error logging in user" });
   }
@@ -98,7 +98,6 @@ app.get("/profile", verifyToken, (req, res) => {
 });
 
 app.get("/logout", (req, res) => {
-  res.cookie("token", "", { maxAge: 0, sameSite: "lax", httpOnly: true });
   res.status(200).json({ message: "Disconnected" });
 });
 
