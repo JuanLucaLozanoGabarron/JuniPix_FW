@@ -14,8 +14,15 @@ export default function Likes() {
   const fetchGalleries = async () => {
     try {
       const response = await fetch("http://localhost:3000/likes");
-      const galleries = await response.json();
-      setGalleries(galleries);
+      const allGalleries = await response.json();
+
+      const userId = localStorage.getItem("id");
+
+      const userGalleries = allGalleries.filter((gallery) => {
+        return gallery.userid === userId;
+      });
+
+      setGalleries(userGalleries);
     } catch (error) {
       console.error("Error fetching galleries:", error);
     }
