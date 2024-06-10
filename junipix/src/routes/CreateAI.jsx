@@ -176,36 +176,44 @@ export default function CreateAI(props) {
           </div>
 
           {showPopAi && (
-            <div className="PopUp">
-              <div className="PopUpInfo">
+            <div className="PopUpAi" key={props.id}>
+              <div className="PopUpInfoAi">
                 <h2>Add to Gallery</h2>
                 <p>Choose an option:</p>
                 <div className="options">
                   <div>
                     <h3>Add to existing gallery:</h3>
-                    {existingGalleries.map((gallery) => (
-                      <button
-                        key={gallery._id}
-                        onClick={() => handleAddToExistingGallery(gallery._id)}
-                      >
-                        {gallery.name}
-                      </button>
-                    ))}
+                    <div className="choiseGallery">
+                      {existingGalleries.map((gallery) => (
+                        <button
+                          key={gallery._id}
+                          onClick={() =>
+                            handleAddToExistingGallery(gallery._id)
+                          }
+                        >
+                          {gallery.name}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                   <div>
                     <h3>Create new gallery:</h3>
-                    <input
-                      type="text"
-                      placeholder="Enter new gallery name"
-                      value={newGalleryName}
-                      onChange={(e) => setNewGalleryName(e.target.value)}
-                    />
-                    <button onClick={handleCreateNewGallery}>
-                      Create new gallery
-                    </button>
+                    <div className="newGallery">
+                      <input
+                        type="text"
+                        placeholder="Enter new gallery name"
+                        value={newGalleryName}
+                        onChange={(e) => setNewGalleryName(e.target.value)}
+                      />
+                      <button onClick={handleCreateNewGallery}>
+                        Create new gallery
+                      </button>
+                    </div>
                   </div>
                 </div>
-                <button onClick={handleClosePopUpAi}>Close</button>
+                <button id="close" onClick={handleClosePopUpAi}>
+                  Close
+                </button>
               </div>
             </div>
           )}

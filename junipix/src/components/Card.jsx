@@ -128,29 +128,33 @@ export default function Card(props) {
             <div className="options">
               <div>
                 <h3>Add to existing gallery:</h3>
-                {existingGalleries.map((gallery) => (
-                  <button
-                    key={gallery._id}
-                    onClick={() => handleAddToExistingGallery(gallery._id)}
-                  >
-                    {gallery.name}
-                  </button>
-                ))}
+                <div className="choiseGallery">
+                  {existingGalleries.map((gallery) => (
+                    <button
+                      key={gallery._id}
+                      onClick={() => handleAddToExistingGallery(gallery._id)}
+                    >
+                      {gallery.name}
+                    </button>
+                  ))}
+                </div>
               </div>
               <div>
                 <h3>Create new gallery:</h3>
-                <input
-                  type="text"
-                  placeholder="Enter new gallery name"
-                  value={newGalleryName}
-                  onChange={(e) => setNewGalleryName(e.target.value)}
-                />
-                <button onClick={handleCreateNewGallery}>
-                  Create new gallery
-                </button>
+                <div className="newGallery">
+                  <input
+                    type="text"
+                    placeholder="Enter new gallery name"
+                    value={newGalleryName}
+                    onChange={(e) => setNewGalleryName(e.target.value)}
+                  />
+                  <button onClick={handleCreateNewGallery}>
+                    Create new gallery
+                  </button>
+                </div>
               </div>
             </div>
-            <button onClick={handleClosePopUp}>Close</button>
+            <button id="close" onClick={handleClosePopUp}>Close</button>
           </div>
         </div>
       )}

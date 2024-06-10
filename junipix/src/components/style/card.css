@@ -48,10 +48,12 @@
   background-color: rgba(164, 152, 141, 0.8);
   padding: 20px;
   position: fixed;
+  top: 150px;
   left: 450px;
   margin: auto;
+  margin-top: 100px;
   width: 500px;
-  height: 350px;
+  height: 400px;
   z-index: 4;
 }
 
@@ -65,14 +67,11 @@
   font-size: 12px;
 }
 
-.PopUp a {
-}
-
 .PopUpInfo {
   background-color: white;
   text-align: center;
   width: 450px;
-  height: 300px;
+  height: 350px;
   margin: auto;
   padding: 20px;
 }
@@ -93,4 +92,57 @@
   justify-content: space-between;
   flex-direction: row;
   font-size: 12px;
+}
+
+.choiseGallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow-x: scroll;
+  height: 80px;
+  width: 300px;
+  margin: auto;
+}
+
+.choiseGallery::-webkit-scrollbar {
+  width: 1px;
+}
+
+.choiseGallery::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.choiseGallery::-webkit-scrollbar-thumb {
+  background: #beb2a6;
+}
+
+.choiseGallery::-webkit-scrollbar-thumb:hover {
+  background: #a4988d;
+}
+
+.choiseGallery::-webkit-scrollbar-button {
+  display: none;
+}
+
+.newGallery {
+  display: flex;
+  align-items: center;
+  margin-left: 70px;
+  width: 320px;
+  justify-content: space-between;
+}
+
+.newGallery input {
+  width: 70%;
+  border: 0px;
+  background-color: transparent;
+  color: black;
+  font-family: Poppins;
+  font-size: 11px;
+  outline: none;
+  border-bottom: solid 1px;
+}
+
+#close {
+  margin-top: 10px;
 }
