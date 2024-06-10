@@ -11,6 +11,10 @@ export default function Artwork() {
   const [filteredPaintings, setFilteredPaintings] = useState(Painting);
   const [searchParams] = useSearchParams();
 
+  React.useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     const query = searchParams.get("query") || "";
     setSearchQuery(query);
