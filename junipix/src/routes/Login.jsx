@@ -1,20 +1,18 @@
-import React from "react";
-import { useState } from "react";
-import LoginImage from "./images/login.jpeg";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Header from "../components/Header";
 import "./style/login.css";
+import LoginImage from "./images/login.jpeg";
 
 export default function Login() {
   const [inputs, setInputs] = useState({ email: "", password: "" });
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("click");
-    fetch("http://localhost:5173/login", {
+    fetch("http://localhost:3000/login", {
       method: "POST",
-      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
@@ -22,29 +20,31 @@ export default function Login() {
     })
       .then((res) => res.json())
       .then(async (data) => {
-        if (data.status == "Bad Request") {
+        if (
+          data.message === "Invalid credentials" ||
+          data.message === "Error logging in user"
+        ) {
           await Swal.fire({
-            position: "top-end",
+            position: "center",
             icon: "error",
             title: data.message,
             showConfirmButton: false,
             timer: 2000,
-            position: "center",
           });
           return;
         }
-        console.log(data);
         await Swal.fire({
-          position: "top-end",
+          position: "center",
           icon: "success",
-          title: data.message,
+          title: "Connected succesfully",
           showConfirmButton: false,
           timer: 2000,
-          position: "center",
         });
-        window.location.href = "/profile";
+        localStorage.setItem("id", data.id);
+        navigate("/profile");
       });
   };
+
   return (
     <>
       <Header />
@@ -56,36 +56,15 @@ export default function Login() {
         </div>
         <div className="infoLogin">
           <div className="formContact">
-            <motion.div
-              className="form"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ ease: "easeOut", duration: 0.6 }}
-            >
-              <form onSubmit={handleSubmit}>
-                <div className="info">
-                  <input
-                    className="formInput"
-                    id="mailLogin"
-                    type="email"
-                    placeholder="Email address"
-                    value={inputs.email}
-                    name="email"
-                    onChange={(e) =>
-                      setInputs((prev) => ({
-                        ...prev,
-                        [e.target.name]: e.target.value,
-                      }))
-                    }
-                  />
-                </div>
+            <form onSubmit={handleSubmit}>
+              <div className="info">
                 <input
                   className="formInput"
-                  id="password"
-                  type="text"
-                  placeholder="Password"
-                  name="password"
-                  value={inputs.password}
+                  id="mailLogin"
+                  type="email"
+                  placeholder="Email address"
+                  value={inputs.email}
+                  name="email"
                   onChange={(e) =>
                     setInputs((prev) => ({
                       ...prev,
@@ -93,27 +72,35 @@ export default function Login() {
                     }))
                   }
                 />
-                <p id="account">
-                  Don't have a account yet?{" "}
-                  <Link to="/register" id="registerNow">
-                    Register{" "}
-                  </Link>
-                  Now
-                </p>
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ ease: "easeOut", duration: 0.6, delay: 0.1 }}
-                >
-                  <button id="button" type="submit" value="Send">
-                    <p>Login</p>
-                  </button>
-                </motion.div>
-              </form>
-            </motion.div>
+              </div>
+              <input
+                className="formInput"
+                id="password"
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={inputs.password}
+                onChange={(e) =>
+                  setInputs((prev) => ({
+                    ...prev,
+                    [e.target.name]: e.target.value,
+                  }))
+                }
+              />
+              <p id="account">
+                Don't have an account yet?{" "}
+                <Link to="/register" id="registerNow">
+                  Register
+                </Link>{" "}
+                Now
+              </p>
+              <button id="button" type="submit" value="Send">
+                <p>Log In</p>
+              </button>
+            </form>
           </div>
           <div className="image">
-            <img id="large" src={LoginImage} alt="" />
+            <img id="large" src={LoginImage} alt="Login" />
           </div>
         </div>
       </div>

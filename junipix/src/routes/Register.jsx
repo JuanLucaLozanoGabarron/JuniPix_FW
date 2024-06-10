@@ -1,10 +1,9 @@
-import React from "react";
-import { useState } from "react";
-import LoginImage from "./images/login.jpeg";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Swal from "sweetalert2";
 import Header from "../components/Header";
+import LoginImage from "./images/login.jpeg";
 import "./style/register.css";
 
 export default function Register() {
@@ -14,42 +13,65 @@ export default function Register() {
     password: "",
   });
 
-  const handleSubmit = (e) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setRegister((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
-    fetch("http://localhost:5173/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+    try {
+      const response = await fetch("http://localhost:3000/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(register),
+      });
 
-      body: JSON.stringify(register),
-    })
-      .then((res) => res.json())
-      .then(async (data) => {
-        console.log(data);
-        if (data.status == "Bad Request") {
-          await Swal.fire({
-            position: "top-end",
-            icon: "error",
-            title: data.message,
-            showConfirmButton: false,
-            timer: 2000,
-            position: "center",
-          });
-          return;
-        }
+      const data = await response.json();
+      console.log(data);
+      setLoading(false);
+
+      if (response.status !== 201) {
         await Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "The registration succeeded",
+          icon: "error",
+          title: data.message || "Something went wrong",
           showConfirmButton: false,
           timer: 2000,
           position: "center",
         });
-        window.location.href = "/";
+        return;
+      }
+
+      await Swal.fire({
+        icon: "success",
+        title: "Registration succeeded",
+        showConfirmButton: false,
+        timer: 2000,
+        position: "center",
       });
+      window.location.href = "/login";
+    } catch (error) {
+      setLoading(false);
+      await Swal.fire({
+        icon: "error",
+        title: "Network error",
+        text: error.message,
+        showConfirmButton: false,
+        timer: 2000,
+        position: "center",
+      });
+    }
   };
+
   return (
     <>
       <Header />
@@ -61,12 +83,7 @@ export default function Register() {
         </div>
         <div className="infoRegister">
           <div className="formContact">
-            <motion.div
-              className="form"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ ease: "easeOut", duration: 0.6 }}
-            >
+            <div className="form">
               <form onSubmit={handleSubmit}>
                 <div className="info">
                   <input
@@ -76,12 +93,7 @@ export default function Register() {
                     type="text"
                     placeholder="Your name"
                     value={register.name}
-                    onChange={(e) =>
-                      setRegister((prev) => ({
-                        ...prev,
-                        [e.target.name]: e.target.value,
-                      }))
-                    }
+                    onChange={handleInputChange}
                   />
                   <input
                     className="formInput"
@@ -90,12 +102,7 @@ export default function Register() {
                     type="email"
                     placeholder="Email address"
                     value={register.email}
-                    onChange={(e) =>
-                      setRegister((prev) => ({
-                        ...prev,
-                        [e.target.name]: e.target.value,
-                      }))
-                    }
+                    onChange={handleInputChange}
                   />
                 </div>
                 <input
@@ -105,35 +112,26 @@ export default function Register() {
                   type="password"
                   placeholder="Password"
                   value={register.password}
-                  onChange={(e) =>
-                    setRegister((prev) => ({
-                      ...prev,
-                      [e.target.name]: e.target.value,
-                    }))
-                  }
+                  onChange={handleInputChange}
                 />
                 <p id="account">
-                  You have a account?{" "}
+                  You have an account?{" "}
                   <Link to="/login" id="registerNow">
                     Log in{" "}
                   </Link>
                   Now
                 </p>
 
-                <button id="button" type="submit" value="Send">
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ ease: "easeOut", duration: 0.6, delay: 0.1 }}
-                  >
-                    <p>Sign In</p>
-                  </motion.div>
+                <button id="button" type="submit" disabled={loading}>
+                  <div>
+                    <p>{loading ? "Signing In..." : "Sign In"}</p>
+                  </div>
                 </button>
               </form>
-            </motion.div>
+            </div>
           </div>
           <div className="image">
-            <img id="large" src={LoginImage} alt="" />
+            <img id="large" src={LoginImage} alt="Login" />
           </div>
         </div>
       </div>

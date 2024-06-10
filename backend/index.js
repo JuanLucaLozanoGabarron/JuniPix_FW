@@ -4,7 +4,6 @@ const { MongoClient, ObjectId } = require("mongodb");
 const cors = require("cors");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const { check, validationResult } = require("express-validator");
 const { v4: uuidv4 } = require("uuid");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
@@ -13,15 +12,7 @@ const app = express();
 const port = process.env.PORT;
 const uri = process.env.REACT_APP_AUTH;
 
-console.log(process.env.PORT);
-console.log(process.env.SECRET);
-
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-    credentials: true,
-  })
-);
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
@@ -43,85 +34,49 @@ async function connectToDatabase() {
 }
 connectToDatabase().catch(console.dir);
 
-const userSchema = new mongoose.Schema({
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
+const User = require("./models/user");
+
+app.post("/register", async (req, res) => {
+  const { name, email, password } = req.body;
+  try {
+    let user = await User.findOne({ email });
+    if (user) {
+      return res.status(400).json({ message: "User already exists" });
+    }
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = new User({
+      id: uuidv4(),
+      name,
+      email,
+      password: hashedPassword,
+    });
+    await newUser.save();
+    res.status(201).json({ message: "User registered successfully" });
+  } catch (error) {
+    console.error("Error registering user:", error);
+    res.status(500).json({ message: "Error registering user" });
+  }
 });
-const User = mongoose.model("User", userSchema);
 
-app.post(
-  "/register",
-  [
-    check("email", "Please include a valid email").isEmail(),
-    check("password", "Password must be 6 or more characters").isLength({
-      min: 6,
-    }),
-  ],
-  async (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+app.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+  console.log(password);
+  try {
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(400).json({ message: "Invalid credentials" });
     }
 
-    const { email, password } = req.body;
-
-    try {
-      let user = await User.findOne({ email });
-      if (user) {
-        return res.status(400).json({ message: "User already exists" });
-      }
-
-      const hashedPassword = await bcrypt.hash(password, 10);
-      const newUser = new User({ email, password: hashedPassword });
-      await newUser.save();
-      res.status(201).json({ message: "User registered successfully" });
-    } catch (error) {
-      console.error("Error registering user:", error);
-      res.status(500).json({ message: "Error registering user" });
+    console.log(user);
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(400).json({ message: "Invalid credentials" });
     }
+    res.json({ id: user.id });
+  } catch (error) {
+    res.status(500).json({ message: "Error logging in user" });
   }
-);
-
-app.post(
-  "/login",
-  [
-    check("email", "Please include a valid email").isEmail(),
-    check("password", "Password is required").exists(),
-  ],
-  async (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-
-    const { email, password } = req.body;
-
-    try {
-      const user = await User.findOne({ email });
-      if (!user) {
-        return res.status(400).json({ message: "Invalid credentials" });
-      }
-
-      const isMatch = await bcrypt.compare(password, user.password);
-      if (!isMatch) {
-        return res.status(400).json({ message: "Invalid credentials" });
-      }
-
-      const token = jwt.sign({ userId: user._id }, process.env.SECRET, {
-        expiresIn: "1d",
-      });
-      res.cookie("token", token, {
-        maxAge: 24 * 60 * 60 * 1000,
-        sameSite: "lax",
-        httpOnly: true,
-      });
-      res.status(200).json({ status: "Connected", message: "Connected!" });
-    } catch (error) {
-      console.error("Error logging in user:", error);
-      res.status(500).json({ message: "Error logging in user" });
-    }
-  }
-);
+});
 
 const verifyToken = (req, res, next) => {
   const token = req.cookies.token;
