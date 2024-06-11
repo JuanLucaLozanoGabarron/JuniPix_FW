@@ -119,7 +119,7 @@ app.get("/galleries", async (req, res) => {
   }
 });
 
-app.get("/gallery/:id/images", async (req, res) => {
+app.get("/gallery/:id", async (req, res) => {
   try {
     const galleryId = req.params.id;
     const gallery = await galleryCollection.findOne({
@@ -128,6 +128,9 @@ app.get("/gallery/:id/images", async (req, res) => {
     if (!gallery) {
       return res.status(404).send("Gallery not found");
     }
+    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3001");
+    res.setHeader("Access-Control-Allow-Methods", "GET");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     res.json(gallery.images);
   } catch (error) {
     console.error("Error fetching gallery images:", error);
