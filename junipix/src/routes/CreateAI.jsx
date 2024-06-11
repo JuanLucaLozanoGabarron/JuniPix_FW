@@ -149,6 +149,18 @@ export default function CreateAI(props) {
           <h1>Create ai art</h1>
           <hr />
         </div>
+        <div className="infoCreateAi">
+          <p>
+            Create AI Art allows you to generate unique paintings by simply
+            describing what you want to see and AiPix will create a beautiful
+            artwork based on your input for example you can enter a prompt like
+            <span class="bold">
+              " A painting in baroque style: a boy at a window"
+            </span>
+            and the AI will generate it. Let your creativity flow and see your
+            ideas come to life with AI-generated art
+          </p>
+        </div>
         <div className="searchAi">
           <input
             type="text"
@@ -170,10 +182,7 @@ export default function CreateAI(props) {
                   </button>
                 </div>
                 <div className="imageAi">
-                  <img
-                    src={image.url === "/" ? Art : image.url}
-                    alt=""
-                  />
+                  <img src={image.url === "/" ? Art : image.url} alt="" />
                 </div>
               </div>
             ))}

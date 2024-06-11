@@ -17,12 +17,16 @@
 
 .titleOfCreation {
   margin-top: 130px;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   z-index: 2;
   text-align: center;
+}
+
+.infoCreateAi {
+  margin-bottom: 25px;
 }
 
 hr {
@@ -206,4 +210,12 @@ hr {
 
 #popUpLogin {
   margin-right: 20px;
+}
+
+.infoCreateAi {
+  font-size: 11px;
+}
+
+.bold {
+  font-weight: bold;
 }
