@@ -5,12 +5,12 @@ import { useParams } from "react-router-dom";
 import * as THREE from "three";
 import Artpiece from "./Artpiece.jsx";
 import concreteTexture from "./images/floor.jpg";
-import { extend } from "@react-three/fiber";
 import { Link } from "react-router-dom";
+import { extend } from "@react-three/fiber";
 import "./style/gallery3D.css";
 
-extend({ THREE });
-extend({ OrbitControls, Loader });
+import { OrbitControls as ThreeOrbitControls } from "three-stdlib";
+extend({ OrbitControls: ThreeOrbitControls });
 
 export default function Gallery3D() {
   const wallWidth = 30;
