@@ -98,6 +98,8 @@ export default function CreateAI(props) {
 
       if (responseAdd.ok) {
         console.log(`Added to existing gallery: ${galleryId}`);
+        setShowPopAi(false);
+
       } else {
         console.error("Error adding to existing gallery");
       }
