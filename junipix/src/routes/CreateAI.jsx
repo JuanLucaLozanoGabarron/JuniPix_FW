@@ -4,6 +4,7 @@ import Art from "../components/images/hand.jpeg";
 import Heart from "../components/images/heart.png";
 import "./style/createAi.css";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default function CreateAI(props) {
   const [images, setImages] = useState([]);
@@ -73,7 +74,13 @@ export default function CreateAI(props) {
       const gallery = await response.json();
 
       if (gallery.artpieces.length >= 6) {
-        console.log("Maximum art pieces reached for this gallery");
+        await Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Maximum art pieces reached for this gallery",
+          showConfirmButton: false,
+          timer: 2000,
+        });
         return;
       }
 
@@ -97,11 +104,22 @@ export default function CreateAI(props) {
       );
 
       if (responseAdd.ok) {
-        console.log(`Added to existing gallery: ${galleryId}`);
+        await Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Added to gallery successfully",
+          showConfirmButton: false,
+          timer: 2000,
+        });
         setShowPopAi(false);
-
       } else {
-        console.error("Error adding to existing gallery");
+        await Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Error adding to existing gallery",
+          showConfirmButton: false,
+          timer: 2000,
+        });
       }
     } catch (error) {
       console.error("Error:", error);
@@ -136,8 +154,22 @@ export default function CreateAI(props) {
 
       const gallery = await response.json();
       setExistingGalleries([...existingGalleries, gallery]);
+      await Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Added to gallery successfully",
+        showConfirmButton: false,
+        timer: 2000,
+      });
       setShowPopAi(false);
     } catch (error) {
+      await Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Error creating new gallery",
+        showConfirmButton: false,
+        timer: 2000,
+      });
       console.error("Error creating new gallery:", error);
     }
   };

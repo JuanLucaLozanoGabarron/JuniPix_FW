@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./style/card.css";
 import Heart from "./images/heart.png";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default function Card(props) {
   const [showPop, setShowPop] = useState(false);
@@ -38,7 +39,13 @@ export default function Card(props) {
       const gallery = await response.json();
 
       if (gallery.artpieces.length >= 6) {
-        console.log("Maximum art pieces reached for this gallery");
+        await Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Maximum art pieces reached for this gallery",
+          showConfirmButton: false,
+          timer: 2000,
+        });
         return;
       }
 
@@ -62,10 +69,23 @@ export default function Card(props) {
       );
 
       if (responseAdd.ok) {
-        console.log(`Added to existing gallery: ${galleryId}`);
+        await Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Added to gallery successfully",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+
         setShowPop(false);
       } else {
-        console.error("Error adding to existing gallery");
+        await Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Error adding to existing gallery",
+          showConfirmButton: false,
+          timer: 2000,
+        });
       }
     } catch (error) {
       console.error("Error:", error);
@@ -99,8 +119,22 @@ export default function Card(props) {
 
       const gallery = await response.json();
       setExistingGalleries([...existingGalleries, gallery]);
+      await Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Added to gallery successfully",
+        showConfirmButton: false,
+        timer: 2000,
+      });
       setShowPop(false);
     } catch (error) {
+      await Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Error creating new gallery",
+        showConfirmButton: false,
+        timer: 2000,
+      });
       console.error("Error creating new gallery:", error);
     }
   };

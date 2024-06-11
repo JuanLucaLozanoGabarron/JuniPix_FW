@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import "./style/gallery.css";
 import Card from "../components/Card";
+import Swal from "sweetalert2";
 
 export default function Gallery() {
   const { id } = useParams();
@@ -35,10 +36,22 @@ export default function Gallery() {
       });
 
       if (response.ok) {
-        console.log(`Gallery deleted successfully`);
+        await Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Gallery deleted successfully",
+          showConfirmButton: false,
+          timer: 2000,
+        });
         navigate("/likes");
       } else {
-        console.error("Error deleting gallery");
+        await Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Error deleting gallery",
+          showConfirmButton: false,
+          timer: 2000,
+        });
       }
     } catch (error) {
       console.error("Error:", error);
