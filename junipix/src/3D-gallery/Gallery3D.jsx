@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, extend } from "@react-three/fiber";
 import { OrbitControls, Loader } from "@react-three/drei";
 import { useParams } from "react-router-dom";
 import * as THREE from "three";
 import Artpiece from "./Artpiece.jsx";
 import concreteTexture from "./images/floor.jpg";
 import { Link } from "react-router-dom";
-import { extend } from "@react-three/fiber";
 import "./style/gallery3D.css";
 
-import { OrbitControls as ThreeOrbitControls } from "three-stdlib";
-extend({ OrbitControls: ThreeOrbitControls });
+extend({ OrbitControls });
 
 export default function Gallery3D() {
   const wallWidth = 30;
@@ -193,9 +191,9 @@ export default function Gallery3D() {
                 calculateArtpieceDimensions(
                   artpiecePlacements[index].position[2]
                 );
-              console.log(artpiece.url);
               return (
                 <React.Fragment key={index}>
+                  {console.log(artpiece.url)}
                   <Artpiece
                     position={artpiecePlacements[index].position}
                     rotation={artpiecePlacements[index].rotation}
