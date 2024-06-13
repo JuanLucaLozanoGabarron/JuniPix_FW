@@ -79,7 +79,6 @@ export default function Gallery() {
           <button onClick={handleDeleteGallery}>Delete Gallery</button>
         </div>
         <div className="listOfLikedArt">
-          <h2>Art pieces</h2>
           <div className="listArtPieces">
             {gallery.artpieces.map((artpiece) => (
               <Card
@@ -89,6 +88,7 @@ export default function Gallery() {
                 author={artpiece.author}
                 style={artpiece.style}
                 url={artpiece.url}
+                hideHeartButton={true}
               />
             ))}
           </div>

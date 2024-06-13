@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Hand from "../components/images/hand.jpeg";
 import Swal from "sweetalert2";
 
-export default function ListGalley() {
+export default function ListGallery() {
   const [galleries, setGalleries] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 

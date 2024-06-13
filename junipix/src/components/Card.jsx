@@ -145,9 +145,11 @@ export default function Card(props) {
     <>
       <div className="cardArt" key={props.id}>
         <div className="likeArt">
-          <button onClick={handleHeartClick}>
-            <img src={Heart} alt="like" />
-          </button>
+          {!props.hideHeartButton && (
+            <button onClick={handleHeartClick}>
+              <img src={Heart} alt="like" />
+            </button>
+          )}
         </div>
         <div className="imageArt">
           <img src={props.url} alt={props.title} />
