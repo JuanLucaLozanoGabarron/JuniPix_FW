@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Canvas, extend } from "@react-three/fiber";
 import { OrbitControls, Loader } from "@react-three/drei";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import * as THREE from "three";
 import Artpiece from "./Artpiece.jsx";
 import concreteTexture from "./images/floor.jpg";
+import { Link } from "react-router-dom";
 import "./style/gallery3D.css";
 
 extend({ OrbitControls, Loader });
@@ -20,6 +21,7 @@ export default function Gallery3D() {
   const [gallery, setGallery] = useState(null);
   const [textureLoaded, setTextureLoaded] = useState(false);
   const [concreteTextureObj, setConcreteTextureObj] = useState(null);
+  const [loading, setLoading] = useState(true); // Etat pour gérer le chargement
 
   useEffect(() => {
     const textureLoader = new THREE.TextureLoader();
@@ -67,6 +69,7 @@ export default function Gallery3D() {
       } else {
         console.error("Error fetching gallery");
       }
+      setLoading(false);
     } catch (error) {
       console.error("Error fetching gallery:", error);
     }
@@ -131,79 +134,87 @@ export default function Gallery3D() {
         </div>
       </Link>
 
-      <Canvas style={{ width: "100%", height: "100%" }}>
-        <ambientLight />
-        <pointLight position={[10, 10, 10]} />
-        <OrbitControls />
-        <Loader />
+      {loading ? (
+        <div style={{ textAlign: "center", marginTop: "50px" }}>
+          <Loader />
+          <p>Loading...</p>
+        </div>
+      ) : (
+        <Canvas style={{ width: "100%", height: "100%" }}>
+          <ambientLight />
+          <pointLight position={[10, 10, 10]} />
+          <OrbitControls />
+          <Loader />
 
-        <mesh position={[0, 0, -wallWidth / 2]} receiveShadow>
-          <boxGeometry args={[wallWidth, wallHeight, frontBackWallDepth]} />
-          <meshBasicMaterial color={new THREE.Color("white")} />
-        </mesh>
+          <mesh position={[0, 0, -wallWidth / 2]} receiveShadow>
+            <boxGeometry args={[wallWidth, wallHeight, frontBackWallDepth]} />
+            <meshBasicMaterial color={new THREE.Color("white")} />
+          </mesh>
 
-        <mesh position={[0, 0, wallWidth / 2]} receiveShadow>
-          <boxGeometry args={[wallWidth, wallHeight, frontBackWallDepth]} />
-          <meshBasicMaterial color={new THREE.Color("white")} />
-        </mesh>
+          <mesh position={[0, 0, wallWidth / 2]} receiveShadow>
+            <boxGeometry args={[wallWidth, wallHeight, frontBackWallDepth]} />
+            <meshBasicMaterial color={new THREE.Color("white")} />
+          </mesh>
 
-        <mesh
-          position={[-wallWidth / 2, 0, 0]}
-          rotation={[0, Math.PI / 2, 0]}
-          receiveShadow
-        >
-          <boxGeometry args={[wallWidth, wallHeight, sideWallDepth]} />
-          <meshBasicMaterial color={new THREE.Color("whitesmoke")} />
-        </mesh>
-
-        <mesh
-          position={[wallWidth / 2, 0, 0]}
-          rotation={[0, -Math.PI / 2, 0]}
-          receiveShadow
-        >
-          <boxGeometry args={[wallWidth, wallHeight, sideWallDepth]} />
-          <meshBasicMaterial color={new THREE.Color("whitesmoke")} />
-        </mesh>
-
-        {textureLoaded && concreteTextureObj && (
           <mesh
-            position={[0, -wallHeight / 2, 0]}
-            rotation={[-Math.PI / 2, 0, 0]}
+            position={[-wallWidth / 2, 0, 0]}
+            rotation={[0, Math.PI / 2, 0]}
+            receiveShadow
+          >
+            <boxGeometry args={[wallWidth, wallHeight, sideWallDepth]} />
+            <meshBasicMaterial color={new THREE.Color("whitesmoke")} />
+          </mesh>
+
+          <mesh
+            position={[wallWidth / 2, 0, 0]}
+            rotation={[0, -Math.PI / 2, 0]}
+            receiveShadow
+          >
+            <boxGeometry args={[wallWidth, wallHeight, sideWallDepth]} />
+            <meshBasicMaterial color={new THREE.Color("whitesmoke")} />
+          </mesh>
+
+          {textureLoaded && concreteTextureObj && (
+            <mesh
+              position={[0, -wallHeight / 2, 0]}
+              rotation={[-Math.PI / 2, 0, 0]}
+              receiveShadow
+            >
+              <boxGeometry args={[wallWidth, wallWidth, 0.1]} />
+              <meshBasicMaterial map={concreteTextureObj} />
+            </mesh>
+          )}
+
+          <mesh
+            position={[0, wallHeight / 2, 0]}
+            rotation={[Math.PI / 2, 0, 0]}
             receiveShadow
           >
             <boxGeometry args={[wallWidth, wallWidth, 0.1]} />
-            <meshBasicMaterial map={concreteTextureObj} />
+            <meshBasicMaterial color={new THREE.Color("lightgray")} />
           </mesh>
-        )}
 
-        <mesh
-          position={[0, wallHeight / 2, 0]}
-          rotation={[Math.PI / 2, 0, 0]}
-          receiveShadow
-        >
-          <boxGeometry args={[wallWidth, wallWidth, 0.1]} />
-          <meshBasicMaterial color={new THREE.Color("lightgray")} />
-        </mesh>
-
-        <group>
-          {gallery &&
-            gallery.artpieces.map((artpiece, index) => {
-              const { artpieceWidth, artpieceHeight } =
-                calculateArtpieceDimensions(
-                  artpiecePlacements[index].position[2]
+          <group>
+            {gallery &&
+              gallery.artpieces.map((artpiece, index) => {
+                const { artpieceWidth, artpieceHeight } =
+                  calculateArtpieceDimensions(
+                    artpiecePlacements[index].position[2]
+                  );
+                return (
+                  <React.Fragment key={index}>
+                    <Artpiece
+                      position={artpiecePlacements[index].position}
+                      rotation={artpiecePlacements[index].rotation}
+                      scale={[artpieceWidth, artpieceHeight, 0.1]}
+                      texture={artpiece.url}
+                    />
+                  </React.Fragment>
                 );
-              return (
-                <Artpiece
-                  key={index}
-                  position={artpiecePlacements[index].position}
-                  rotation={artpiecePlacements[index].rotation}
-                  scale={[artpieceWidth, artpieceHeight, 0.1]}
-                  texture={artpiece.url}
-                />
-              );
-            })}
-        </group>
-      </Canvas>
+              })}
+          </group>
+        </Canvas>
+      )}
     </div>
   );
 }
