@@ -9,7 +9,7 @@ const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 const uri = process.env.REACT_APP_AUTH;
 
 app.use(cors());
