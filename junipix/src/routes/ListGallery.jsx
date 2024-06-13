@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import "./style/likes.css";
 import { Link } from "react-router-dom";
 import Hand from "../components/images/hand.jpeg";
+import Swal from "sweetalert2";
 
 export default function ListGalley() {
   const [galleries, setGalleries] = useState([]);
@@ -31,6 +32,21 @@ export default function ListGalley() {
       setGalleries(userGalleries);
     } catch (error) {
       console.error("Error fetching galleries:", error);
+    }
+  };
+
+  const handleGalleryClick = (gallery) => {
+    if (gallery.artpieces.length < 4) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Minimum of four art pieces required",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+      return;
+    } else {
+      window.location.href = `/gallery/${gallery._id}`;
     }
   };
 
@@ -72,12 +88,12 @@ export default function ListGalley() {
         <div className="likesInfo">
           <div className="listOfGallery">
             {galleries.map((gallery) => (
-              <Link to={`/gallery/${gallery._id}`} key={gallery._id}>
-                <div className="galleryItem">
-                  <p>{gallery.name}</p>
-                  <button>View</button>
-                </div>
-              </Link>
+              <div className="galleryItem" key={gallery._id}>
+                <p>{gallery.name}</p>
+                <button onClick={() => handleGalleryClick(gallery)}>
+                  View
+                </button>
+              </div>
             ))}
           </div>
           <div className="imageDecor">
