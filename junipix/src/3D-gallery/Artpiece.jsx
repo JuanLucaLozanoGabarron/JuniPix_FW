@@ -17,7 +17,7 @@ export default function Artpiece({ position, rotation, scale, texture }) {
   return (
     <mesh ref={meshRef} position={position} rotation={rotation} scale={scale}>
       <boxGeometry args={[1, 1, 0.1]} />
-      <meshBasicMaterial color={"white"} />
+      <meshBasicMaterial map={null} color={"white"} />
     </mesh>
   );
 }

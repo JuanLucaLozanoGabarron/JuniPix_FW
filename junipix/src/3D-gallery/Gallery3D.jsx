@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Canvas, extend } from "@react-three/fiber";
 import { OrbitControls, Loader } from "@react-three/drei";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import * as THREE from "three";
 import Artpiece from "./Artpiece.jsx";
 import concreteTexture from "./images/floor.jpg";
-import { Link } from "react-router-dom";
 import "./style/gallery3D.css";
 
-extend({ OrbitControls });
+extend({ OrbitControls, Loader });
 
 export default function Gallery3D() {
   const wallWidth = 30;
@@ -194,15 +193,13 @@ export default function Gallery3D() {
                   artpiecePlacements[index].position[2]
                 );
               return (
-                <React.Fragment key={index}>
-                  {console.log(artpiece.url)}
-                  <Artpiece
-                    position={artpiecePlacements[index].position}
-                    rotation={artpiecePlacements[index].rotation}
-                    scale={[artpieceWidth, artpieceHeight, 0.1]}
-                    texture={artpiece.url}
-                  />
-                </React.Fragment>
+                <Artpiece
+                  key={index}
+                  position={artpiecePlacements[index].position}
+                  rotation={artpiecePlacements[index].rotation}
+                  scale={[artpieceWidth, artpieceHeight, 0.1]}
+                  texture={artpiece.url}
+                />
               );
             })}
         </group>
