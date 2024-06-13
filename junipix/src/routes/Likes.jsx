@@ -6,7 +6,7 @@ import Hand from "../components/images/hand.jpeg";
 
 export default function Likes() {
   const [galleries, setGalleries] = useState([]);
-  const [isLoggedIn, setIsLoggedIn] = useState(true); // Ajout de l'état isLoggedIn
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   useEffect(() => {
     fetchGalleries();
@@ -14,7 +14,7 @@ export default function Likes() {
 
   const fetchGalleries = async () => {
     try {
-      const response = await fetch("http://localhost:3000/likes");
+      const response = await fetch("https://junipix-api.onrender.com/likes");
       const allGalleries = await response.json();
 
       const userId = localStorage.getItem("id");

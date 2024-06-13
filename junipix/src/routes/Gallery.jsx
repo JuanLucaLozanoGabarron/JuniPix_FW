@@ -16,7 +16,9 @@ export default function Gallery() {
 
   const fetchGallery = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/likes/${id}`);
+      const response = await fetch(
+        `https://junipix-api.onrender.com/likes/${id}`
+      );
       if (response.ok) {
         const gallery = await response.json();
         setGallery(gallery);
@@ -31,9 +33,12 @@ export default function Gallery() {
   const handleDeleteGallery = async () => {
     console.log("test delete");
     try {
-      const response = await fetch(`http://localhost:3000/likes/${id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `https://junipix-api.onrender.com/likes/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       if (response.ok) {
         await Swal.fire({

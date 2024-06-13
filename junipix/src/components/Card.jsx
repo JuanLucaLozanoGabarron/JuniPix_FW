@@ -21,7 +21,7 @@ export default function Card(props) {
 
   const fetchGalleries = async () => {
     try {
-      const response = await fetch("http://localhost:3000/likes");
+      const response = await fetch("https://junipix-api.onrender.com/likes");
       const galleries = await response.json();
       const userGalleries = galleries.filter(
         (gallery) => gallery.userid === userId
@@ -35,7 +35,9 @@ export default function Card(props) {
   const handleAddToExistingGallery = async (galleryId) => {
     console.log(`Adding to existing gallery: ${galleryId}`);
     try {
-      const response = await fetch(`http://localhost:3000/likes/${galleryId}`);
+      const response = await fetch(
+        `https://junipix-api.onrender.com/likes/${galleryId}`
+      );
       const gallery = await response.json();
 
       if (gallery.artpieces.length >= 6) {
@@ -50,7 +52,7 @@ export default function Card(props) {
       }
 
       const responseAdd = await fetch(
-        `http://localhost:3000/likes/${galleryId}`,
+        `https://junipix-api.onrender.com/likes/${galleryId}`,
         {
           method: "POST",
           headers: {
@@ -109,7 +111,7 @@ export default function Card(props) {
     };
 
     try {
-      const response = await fetch("http://localhost:3000/likes", {
+      const response = await fetch("https://junipix-api.onrender.com/likes", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -28,13 +28,16 @@ export default function Register() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:3000/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(register),
-      });
+      const response = await fetch(
+        "https://junipix-api.onrender.com/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(register),
+        }
+      );
 
       const data = await response.json();
       console.log(data);

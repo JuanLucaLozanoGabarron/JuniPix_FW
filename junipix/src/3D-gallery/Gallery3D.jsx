@@ -59,7 +59,9 @@ export default function Gallery3D() {
 
   const fetchGallery = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/likes/${id}`);
+      const response = await fetch(
+        `https://junipix-api.onrender.com/likes/${id}`
+      );
       if (response.ok) {
         const galleryData = await response.json();
         setGallery(galleryData);

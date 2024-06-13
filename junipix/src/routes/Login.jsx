@@ -11,7 +11,7 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3000/login", {
+    fetch("https://junipix-api.onrender.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

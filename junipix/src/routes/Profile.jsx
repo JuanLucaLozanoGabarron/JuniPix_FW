@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import "./style/profile.css";
 
 export async function profileData() {
-  const res = await fetch("http://localhost:3000/profile", {});
+  const res = await fetch("https://junipix-api.onrender.com/profile", {});
   console.log(res);
   return await res.json();
 }
@@ -17,7 +17,7 @@ export default function Profile() {
 
   const logout = async () => {
     try {
-      const response = await fetch("http://localhost:3000/logout", {});
+      const response = await fetch("https://junipix-api.onrender.com/logout", {});
       const data = await response.json();
 
       if (data.message === "Disconnected") {
