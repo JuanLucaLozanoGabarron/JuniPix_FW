@@ -19,12 +19,14 @@
 hr {
   width: 150px;
   height: 0px;
+  z-index: 2;
 }
 
 .titleOfProfile h1 {
   font-size: 50px;
   font-family: Cinzel;
   font-weight: 200;
+  z-index: 2;
 }
 
 .infoProfileData {
@@ -34,6 +36,7 @@ hr {
   margin-right: 100px;
   margin-top: 50px;
   width: 500px;
+  z-index: 2;
 }
 
 .infoProfileData button {
@@ -43,13 +46,18 @@ hr {
   background-color: #a4988d;
   border: none;
   color: white;
+  z-index: 2;
 }
 
 .infoProfile {
   display: flex;
   margin: auto;
+  z-index: 2;
+  margin-left: 200px;
 }
 
 .infoProfile img {
+  margin-left: -200px;
   width: 300px;
+  z-index: 2;
 }
