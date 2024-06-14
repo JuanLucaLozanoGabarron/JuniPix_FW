@@ -67,6 +67,7 @@ export default function Gallery() {
 
   return (
     <>
+      <div className="background"></div>
       <Header />
       <div className="likePage">
         <div className="titleOfLikes">

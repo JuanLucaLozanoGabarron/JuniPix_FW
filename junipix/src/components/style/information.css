@@ -4,6 +4,7 @@
   justify-content: space-between;
   width: 1000px;
   margin-bottom: 38px;
+  z-index: 2;
 }
 
 .aiFunction,

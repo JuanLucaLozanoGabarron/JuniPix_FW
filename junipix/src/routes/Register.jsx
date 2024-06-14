@@ -77,6 +77,7 @@ export default function Register() {
 
   return (
     <>
+      <div className="background"></div>
       <Header />
       <div className="registerPage">
         <div className="titleOfRegister">

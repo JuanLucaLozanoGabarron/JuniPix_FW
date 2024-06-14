@@ -17,7 +17,10 @@ export default function Profile() {
 
   const logout = async () => {
     try {
-      const response = await fetch("https://junipix-api.onrender.com/logout", {});
+      const response = await fetch(
+        "https://junipix-api.onrender.com/logout",
+        {}
+      );
       const data = await response.json();
 
       if (data.message === "Disconnected") {
@@ -45,6 +48,7 @@ export default function Profile() {
         <Navigate to={"/login"} />
       ) : (
         <>
+          <div className="background"></div>
           <Header />
           <div className="profilePage">
             <div className="titleOfProfile">

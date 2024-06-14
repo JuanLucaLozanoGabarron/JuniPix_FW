@@ -178,6 +178,7 @@ export default function CreateAI(props) {
 
   return (
     <>
+      <div className="background"></div>
       <Header />
       <div className="createPage">
         <div className="titleOfCreation">

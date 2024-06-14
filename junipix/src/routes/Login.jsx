@@ -42,13 +42,14 @@ export default function Login() {
         });
         localStorage.setItem("id", data.id);
         localStorage.setItem("name", data.name);
-        localStorage.setItem("email", data.email);  
+        localStorage.setItem("email", data.email);
         navigate("/profile");
       });
   };
 
   return (
     <>
+      <div className="background"></div>
       <Header />
       <div className="loginPage">
         <div className="titleOfLogin">

@@ -38,6 +38,7 @@ export default function Artwork() {
 
   return (
     <>
+      <div className="background"></div>
       <Header />
       <div className="searchPage">
         {noResults ? (

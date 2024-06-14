@@ -20,4 +20,5 @@ a {
   background-image: url("./components/images/background.jpeg");
   background-position: left;
   overflow: hidden;
+  z-index: 1;
 }

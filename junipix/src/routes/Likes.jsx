@@ -37,6 +37,7 @@ export default function Likes() {
   if (!isLoggedIn) {
     return (
       <>
+        <div className="background"></div>
         <Header />
         <div className="likePage">
           <div className="titleOfLikes">
@@ -45,14 +46,14 @@ export default function Likes() {
             <hr />
           </div>
           <div className="likesInfo">
+            <div className="imageDecor">
+              <img src={Hand} alt="" />
+            </div>
             <div className="loginMessage">
               <p>Please login to view your likes.</p>
               <Link to="/login">
                 <button id="loginLikes">Login</button>
               </Link>
-            </div>
-            <div className="imageDecor">
-              <img src={Hand} alt="" />
             </div>
           </div>
         </div>
@@ -62,6 +63,7 @@ export default function Likes() {
 
   return (
     <>
+      <div className="background"></div>
       <Header />
       <div className="likePage">
         <div className="titleOfLikes">
@@ -70,6 +72,9 @@ export default function Likes() {
           <hr />
         </div>
         <div className="likesInfo">
+          <div className="imageDecor">
+            <img src={Hand} alt="" />
+          </div>
           <div className="listOfGallery">
             {galleries.map((gallery) => (
               <Link to={`/likes/${gallery._id}`} key={gallery._id}>
@@ -79,9 +84,6 @@ export default function Likes() {
                 </div>
               </Link>
             ))}
-          </div>
-          <div className="imageDecor">
-            <img src={Hand} alt="" />
           </div>
         </div>
       </div>

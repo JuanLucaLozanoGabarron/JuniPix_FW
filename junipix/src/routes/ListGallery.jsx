@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import "./style/likes.css";
 import { Link } from "react-router-dom";
+import GalleryImage from "./images/gallery_image.jpeg";
 import Hand from "../components/images/hand.jpeg";
 import Swal from "sweetalert2";
 
@@ -53,6 +54,7 @@ export default function ListGallery() {
   if (!isLoggedIn) {
     return (
       <>
+        <div className="background"></div>
         <Header />
         <div className="likePage">
           <div className="titleOfLikes">
@@ -61,14 +63,14 @@ export default function ListGallery() {
             <hr />
           </div>
           <div className="likesInfo">
+            <div className="imageDecor">
+              <img src={GalleryImage} alt="" />
+            </div>
             <div className="loginMessage">
               <p>Please login to view your galleries.</p>
               <Link to="/login">
                 <button id="loginLikes">Login</button>
               </Link>
-            </div>
-            <div className="imageDecor">
-              <img src={Hand} alt="" />
             </div>
           </div>
         </div>
@@ -78,6 +80,7 @@ export default function ListGallery() {
 
   return (
     <>
+      <div className="background"></div>
       <Header />
       <div className="likePage">
         <div className="titleOfLikes">
@@ -86,6 +89,9 @@ export default function ListGallery() {
           <hr />
         </div>
         <div className="likesInfo">
+          <div className="imageDecor">
+            <img src={GalleryImage} alt="" />
+          </div>
           <div className="listOfGallery">
             {galleries.map((gallery) => (
               <div className="galleryItem" key={gallery._id}>
@@ -95,9 +101,6 @@ export default function ListGallery() {
                 </button>
               </div>
             ))}
-          </div>
-          <div className="imageDecor">
-            <img src={Hand} alt="" />
           </div>
         </div>
       </div>

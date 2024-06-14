@@ -45,6 +45,7 @@ export default function App() {
 
   return (
     <>
+      <div className="background"></div>
       <Header />
       <div className="homepage">
         <div className="firstInfo">
