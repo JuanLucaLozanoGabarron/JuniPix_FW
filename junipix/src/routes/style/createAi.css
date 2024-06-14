@@ -28,6 +28,7 @@
 
 .infoCreateAi {
   margin-bottom: 25px;
+  z-index: 2;
 }
 
 hr {
